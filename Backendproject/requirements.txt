@@ -1,0 +1,11 @@
+Django
+ldap3
+mysql-connector-python
+djangorestframework
+django-cors-headers
+djoser
+celery==4.4.1
+flower==0.9.3
+redis==3.4.1
+pytest==5.4.1
+pytest-django==3.8.0
