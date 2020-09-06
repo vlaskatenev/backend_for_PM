@@ -18,3 +18,9 @@ Spin up the containers:
 ```sh
 $ docker-compose up -d --build
 ```
+
+Import dump sql to MySQL in Docker container:
+
+```sh
+$ docker exec -i <id container> mysql -uroot -p1234 db_logs12 < mysql/dump_db_logs12.sql
+```
