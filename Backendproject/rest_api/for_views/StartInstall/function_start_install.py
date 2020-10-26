@@ -1,6 +1,6 @@
 import threading
 
-from core import powershell
+from core import OLD_powershell as powershell
 
 
 def create_object_start_install(status):
@@ -13,7 +13,7 @@ def start_install(data):
     wait_number = 1
     print('progarray', progarray)
     for computer in comp_add:
-        # вызываем функцию powershell из файла powershell.py
+        # вызываем функцию powershell из файла OLD_powershell.py
         threading.Thread(target=powershell.Powershell().powershell_start, args=[computer, progarray, wait_number]).start()
         wait_number += 1
     print("Установка началась, Choice program " + str(progarray))

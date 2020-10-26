@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^manually$', views.Manually.as_view()),
     url(r'^choice_programm/program$', views.StartInstall.as_view()),
     url(r'^history-detail$', views.HistoryDetail.as_view()),
+    url(r'^start-command-tm$', views.StartCommandTaskManager.as_view()),
 
 
 ]
