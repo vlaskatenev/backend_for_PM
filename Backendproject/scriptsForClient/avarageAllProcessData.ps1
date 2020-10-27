@@ -8,13 +8,27 @@ $averageCpu = (Get-WmiObject Win32_Processor | Measure-Object -Property LoadPerc
 
 $averageRam = (Get-Counter '\память\% использования выделенной памяти').CounterSamples.CookedValue
 
+$averageDiskAll = (Get-WmiObject -Class Win32_perfformatteddata_perfdisk_LogicalDisk |
+                   Select-Object Name,DiskReadBytesPersec,DiskWriteBytesPersec) |
+                   Where-Object {$_.Name -eq "_Total"}
+$averageDisk = ($averageDiskAll.DiskReadBytesPersec + $averageDiskAll.DiskWriteBytesPersec) / 1MB
+
+ForEach ($counter in @((Get-NetAdapter).DriverDescription)) {
+    if (@(((Get-Counter).CounterSamples).InstanceName) -contains $counter) {
+        $networkAdapterSpeed = (Get-Counter "\network interface($counter)\bytes total/sec").CounterSamples.CookedValue
+        $fullyNetworkSpeed += $networkAdapterSpeed
+    }
+}
 
 ## Формируем JSON
 $Info = @"
 {
    "averageCpu": $averageCpu,
    "averageRam": $averageRam,
+   "averageDisc": $averageDisk,
+   "fullyNetworkSpeed": $fullyNetworkSpeed,
    "data": $processAll
 }
 "@
+
 Write-Output $Info
