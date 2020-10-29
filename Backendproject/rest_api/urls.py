@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'^history-detail$', views.HistoryDetail.as_view()),
     url(r'^start-command-tm$', views.StartCommandTaskManager.as_view()),
 
-
 ]

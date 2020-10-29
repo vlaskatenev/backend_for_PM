@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
@@ -7,7 +8,7 @@ from rest_api.for_views.StartInstall.function_start_install import start_install
 from rest_api.for_views.pure_functions_history import choise_install
 from rest_api.for_views.Manually.manually_pure_functions import create_object_manually
 from rest_api.for_views.pure_functions_runningprocess import to_install_id_listdir
-from rest_api.for_views.StartCommandShell.pure_functions_start_command_shell import start_command_to_task_manager
+from .tasks import start_command_to_task_manager
 
 
 class History(APIView):
@@ -57,4 +58,5 @@ class StartCommandTaskManager(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        return Response(start_command_to_task_manager(request.data))
+        task = start_command_to_task_manager.delay(request.data)
+        return JsonResponse({"task_id": task.id}, status=202)
