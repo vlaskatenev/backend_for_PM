@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^choice_programm/program$', views.StartInstall.as_view()),
     url(r'^history-detail$', views.HistoryDetail.as_view()),
     url(r'^start-command-tm$', views.StartCommandTaskManager.as_view()),
+    url(r'^get-status-process$', views.GetStatusCelery.as_view()),
 
 ]

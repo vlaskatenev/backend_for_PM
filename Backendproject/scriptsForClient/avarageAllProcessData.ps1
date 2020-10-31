@@ -3,6 +3,10 @@
         @{n="ramUsage";e={[int]($_.WorkingSet/1mb)}},
         @{n="processorTimeUsage";e={[int]($_.PercentProcessorTime)}} | ConvertTo-Json
 
+        $processAll = $processAll -replace '"','\"'     
+
+
+
 # средняя загрузка CPU, RAM и на диск
 $averageCpu = (Get-WmiObject Win32_Processor | Measure-Object -Property LoadPercentage -Average).Average
 
@@ -24,11 +28,11 @@ ForEach ($counter in @((Get-NetAdapter).DriverDescription)) {
 ## Формируем JSON
 $Info = @"
 {
-   "averageCpu": $averageCpu,
-   "averageRam": $averageRam,
-   "averageDisc": $averageDisk,
-   "fullyNetworkSpeed": $fullyNetworkSpeed,
-   "detailProcessData": $processAll
+   \"averageCpu\": \`"$averageCpu\`",
+   \"averageRam\": \`"$averageRam\`",
+   \"averageDisc\": \`"$averageDisk\`",
+   \"fullyNetworkSpeed\": \`"$fullyNetworkSpeed\`",
+   \"detailProcessData\": \`"$processAll\`"
 }
 "@
 

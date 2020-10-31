@@ -1,0 +1,1070 @@
+[2020-10-30 19:37:31,116: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 19:37:31,127: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 19:37:32,340: INFO/MainProcess] mingle: all alone
+[2020-10-30 19:37:32,389: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 19:37:32,389: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 19:37:36,104: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 19:38:17,778: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[7fe7714b-5212-4a5a-93ed-d2f0d782c0c2]  
+[2020-10-30 19:38:39,194: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[7fe7714b-5212-4a5a-93ed-d2f0d782c0c2] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 19:47:48,428: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 19:47:48,441: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 19:47:49,611: INFO/MainProcess] mingle: all alone
+[2020-10-30 19:47:49,636: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 19:47:49,637: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 19:47:50,147: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 19:48:24,975: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[cd434ba0-fea3-47df-b687-80c7612be563]  
+[2020-10-30 19:48:37,371: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[cd434ba0-fea3-47df-b687-80c7612be563] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 19:53:44,028: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[7a1e5b0d-6601-4d2d-b9df-6b1fdcb81303]  
+[2020-10-30 19:53:45,640: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[7a1e5b0d-6601-4d2d-b9df-6b1fdcb81303] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 19:54:59,212: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[a14a4968-d6d6-4d1e-aff4-c1d63fb89663]  
+[2020-10-30 19:55:00,207: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[a14a4968-d6d6-4d1e-aff4-c1d63fb89663] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return dict_obj
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 19:55:39,351: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 19:56:15,553: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 19:56:15,566: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 19:56:16,590: INFO/MainProcess] mingle: all alone
+[2020-10-30 19:56:16,605: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 19:56:16,606: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 19:56:16,790: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 19:56:17,978: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[eeb7c8d2-3091-4934-b284-e1b292d64917]  
+[2020-10-30 19:56:18,430: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[eeb7c8d2-3091-4934-b284-e1b292d64917] succeeded in 0.4449779999999919s: ''
+[2020-10-30 19:58:23,181: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[e8efb06b-5ab5-453d-8e97-791a9648886b]  
+[2020-10-30 19:58:23,566: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[e8efb06b-5ab5-453d-8e97-791a9648886b] succeeded in 0.3819889000000103s: ''
+[2020-10-30 20:09:16,244: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:09:16,271: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:09:17,302: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:09:17,331: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:09:17,332: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 20:09:22,062: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:09:24,831: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[1dd7325a-6159-4ea1-83a7-232ff8dc05d3]  
+[2020-10-30 20:09:27,446: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[1dd7325a-6159-4ea1-83a7-232ff8dc05d3] succeeded in 2.6105407000000014s: ''
+[2020-10-30 20:16:33,388: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[ba31c23f-4123-4f0f-af7c-cc065cc605ed]  
+[2020-10-30 20:16:34,081: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[ba31c23f-4123-4f0f-af7c-cc065cc605ed] succeeded in 0.6849322000000484s: ''
+[2020-10-30 20:18:26,068: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:18:26,095: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:18:27,183: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:18:27,209: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:18:27,211: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 20:18:31,471: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:18:45,446: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[cb120651-8adb-4ef6-a9ef-44bf776e05ca]  
+[2020-10-30 20:18:45,740: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[cb120651-8adb-4ef6-a9ef-44bf776e05ca] succeeded in 0.2893552999998974s: 'Warning: Identity file /etc/ssh/id_rsa not accessible: No such file or directory.
+'
+[2020-10-30 20:36:16,307: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:36:16,323: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:36:17,369: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:36:17,482: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:36:17,483: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 20:36:21,568: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:36:31,690: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[b60588a9-608f-494d-9bed-edf8cf897b23]  
+[2020-10-30 20:36:32,096: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[b60588a9-608f-494d-9bed-edf8cf897b23] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 20:39:36,022: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[43e8241f-7d81-48bf-919d-d9a161546c51]  
+[2020-10-30 20:39:36,793: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[43e8241f-7d81-48bf-919d-d9a161546c51] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return dict_obj
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 20:41:02,624: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:41:02,648: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:41:03,674: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:41:03,725: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:41:03,727: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 20:41:05,437: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:41:10,802: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[ded2f93d-3ce8-4812-9f79-0a337e913de5]  
+[2020-10-30 20:41:11,377: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[ded2f93d-3ce8-4812-9f79-0a337e913de5] succeeded in 0.5686837999996897s: 'Warning: Identity file /usr/src/id_rsa not accessible: No such file or directory.
+'
+[2020-10-30 20:45:15,220: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:45:15,254: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:45:16,280: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:45:16,418: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:45:16,420: INFO/MainProcess] celery@5838c2ea611f ready.
+[2020-10-30 20:45:20,734: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:45:48,258: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[3a2032d6-0e0c-422f-a78f-4a88750122c8]  
+[2020-10-30 20:45:48,735: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[3a2032d6-0e0c-422f-a78f-4a88750122c8] succeeded in 0.4694049999998242s: 'Warning: Identity file ../id_rsa not accessible: No such file or directory.
+'
+[2020-10-30 20:54:06,839: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:54:06,859: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:54:07,889: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:54:07,962: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:54:07,964: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 20:54:08,943: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:54:10,576: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[d903f12e-0b3a-4fff-a7ef-ca0aa94a9471]  
+[2020-10-30 20:54:19,338: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[d903f12e-0b3a-4fff-a7ef-ca0aa94a9471] succeeded in 8.758214599999974s: '{
+   "averageCpu": 5,
+   "averageRam": 48.9373609304748,
+   "averageDisc": 0,
+   "fullyNetworkSpeed": 121.859732599462,
+   "detailProcessData": [
+    {
+        "name":  "GoogleCrashHandler",
+        "idProcess":  3988,
+        "ramUsage":  1,
+        "processorTimeUsage":  0
+    },
+    {
+        "name":  "GoogleCrashHandler64",
+        "idProcess":  4060,
+        "ramUsage":  0,
+        "processorTimeUsage":  0
+    },
+    {
+        "name":  "Idle",
+        "idProcess":  0,
+        "ramUsage":  0,
+        "processorTimeUsage":  370
+    },
+    {
+        "name":  "LogonUI",
+        "idProcess":  968,
+        "ramUsage":  39,
+        "processorTimeUsage":  0
+    },
+    {
+        "name":  "Memory Compression",
+        "idProcess":  2168,
+        "ramUsage":  51,
+        "processorTimeUsage":  0
+    },
+    {
+        "name":  "MsMpEng",
+        "idProcess":  2936,
+        "ramUsage":  77,
+        "processorTimeUsage":  0
+    },
+    {
+        "name":  "NisSrv",
+       ...'
+[2020-10-30 20:56:34,805: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 20:57:49,535: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 20:57:49,547: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 20:57:50,574: INFO/MainProcess] mingle: all alone
+[2020-10-30 20:57:50,602: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 20:57:50,604: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 20:57:55,031: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 20:57:57,687: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[4a5a8427-5f02-448e-8b5e-5e20c91b9854]  
+[2020-10-30 20:58:06,067: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[4a5a8427-5f02-448e-8b5e-5e20c91b9854] succeeded in 8.376354900000479s: {'averageCpu': 2, 'averageRam': 47.2643619513289, 'averageDisc': 0, 'fullyNetworkSpeed': 120.553590056023, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 3988, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 4060, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 968, 'ramUsage': 36, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 2168, 'ramUsage': 52, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 2936, 'ramUsage': 75, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 3092, 'ramUsage': 6, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 6, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3928, 'ramUsage': 14, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess': 1564, 'ramUsage': 10, 'processorTimeUsage': 0}, {'name': 'SgrmBroker', 'idProcess': 1116, , ...}]}
+[2020-10-30 21:01:52,699: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[a73cf8d4-1b84-4d02-b6cf-2324b528c01c]  
+[2020-10-30 21:02:13,782: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[a73cf8d4-1b84-4d02-b6cf-2324b528c01c] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 13, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 22:27:17,981: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 22:29:03,223: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 22:29:03,237: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 22:29:04,263: INFO/MainProcess] mingle: all alone
+[2020-10-30 22:29:04,366: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 22:29:04,369: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 22:29:06,167: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 22:30:29,452: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[c4c72820-540b-437e-8c93-dc11ad6fc1ee]  
+[2020-10-30 22:31:03,022: INFO/MainProcess] Terminating c4c72820-540b-437e-8c93-dc11ad6fc1ee (Signals.SIGTERM)
+[2020-10-30 22:31:03,078: ERROR/MainProcess] Task handler raised error: Terminated(15)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/billiard/pool.py", line 1774, in _set_terminated
+    raise Terminated(-(signum or 0))
+billiard.exceptions.Terminated: 15
+[2020-10-30 22:32:09,546: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[4ee3650e-d12f-47b7-8d50-5a46887256b5]  
+[2020-10-30 22:32:32,650: INFO/ForkPoolWorker-9] Task rest_api.tasks.start_command_to_task_manager[4ee3650e-d12f-47b7-8d50-5a46887256b5] succeeded in 23.097452099998918s: {'averageCpu': 6, 'averageRam': 50.1424640068185, 'averageDisc': 0, 'fullyNetworkSpeed': 162.770656145491, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 3772, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 4044, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 358}, {'name': 'LogonUI', 'idProcess': 808, 'ramUsage': 38, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 1972, 'ramUsage': 42, 'processorTimeUsage': 11}, {'name': 'MsMpEng', 'idProcess': 3016, 'ramUsage': 75, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 1964, 'ramUsage': 4, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 7, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3852, 'ramUsage': 12, 'processorTimeUsage': 0}, {'name': 'SearchProtocolHost', 'idProcess': 2596, 'ramUsage': 6, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess', ...}]}
+[2020-10-30 22:34:40,960: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[eaa06ffe-8b1c-4d7c-ba1d-0e07d88966fe]  
+[2020-10-30 22:35:02,799: ERROR/ForkPoolWorker-9] Task rest_api.tasks.start_command_to_task_manager[eaa06ffe-8b1c-4d7c-ba1d-0e07d88966fe] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 14, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 22:42:48,393: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 22:44:45,920: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 22:44:45,931: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 22:44:46,956: INFO/MainProcess] mingle: all alone
+[2020-10-30 22:44:46,974: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 22:44:46,975: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 22:44:47,276: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[7e653475-36f3-4542-a521-ceaeb001fccb]  
+[2020-10-30 22:44:47,285: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[7e653475-36f3-4542-a521-ceaeb001fccb] succeeded in 0.007068799999615294s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:44:48,091: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 22:45:12,637: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[fa0264f6-1c26-4356-a82e-fa2a9f353d11]  
+[2020-10-30 22:45:12,644: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[fa0264f6-1c26-4356-a82e-fa2a9f353d11] succeeded in 0.0038693999995302875s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:45:15,534: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[97a75b3e-d0d1-4c48-bb62-020737eca488]  
+[2020-10-30 22:45:15,569: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[97a75b3e-d0d1-4c48-bb62-020737eca488] succeeded in 0.03114129999994475s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:45:16,513: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[1007a2a2-eb86-4485-ae25-77335d9ff41d]  
+[2020-10-30 22:45:16,522: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[1007a2a2-eb86-4485-ae25-77335d9ff41d] succeeded in 0.005456400000184658s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:48:30,051: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[26a60ad0-33d3-45e3-89e0-1da2b1b08874]  
+[2020-10-30 22:48:30,058: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[26a60ad0-33d3-45e3-89e0-1da2b1b08874] succeeded in 0.004550199999357574s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:48:30,957: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[d750d991-c798-49fc-9dbf-0d6714af539f]  
+[2020-10-30 22:48:30,965: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[d750d991-c798-49fc-9dbf-0d6714af539f] succeeded in 0.005951299999651383s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:48:31,806: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[3a39447f-6b2c-48a1-a656-a005f9d38420]  
+[2020-10-30 22:48:31,816: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[3a39447f-6b2c-48a1-a656-a005f9d38420] succeeded in 0.006629199999224511s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:54:25,348: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 22:54:25,362: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 22:54:26,388: INFO/MainProcess] mingle: all alone
+[2020-10-30 22:54:28,938: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 22:54:28,939: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 22:54:29,620: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 22:54:44,312: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[efa2c331-b49f-4ce5-bdf2-4bc6c8712452]  
+[2020-10-30 22:54:44,322: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[efa2c331-b49f-4ce5-bdf2-4bc6c8712452] succeeded in 0.006294900000000325s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:55:27,179: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[4b38fd46-a09f-4a57-bf67-cf82f8c883ea]  
+[2020-10-30 22:55:27,189: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[4b38fd46-a09f-4a57-bf67-cf82f8c883ea] succeeded in 0.00517790000000673s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:57:53,966: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 22:57:53,987: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 22:57:55,112: INFO/MainProcess] mingle: all alone
+[2020-10-30 22:57:55,127: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 22:57:55,128: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 22:57:55,387: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[b0437414-6dea-4b1b-a1b9-4ce59a599036]  
+[2020-10-30 22:57:55,399: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[b0437414-6dea-4b1b-a1b9-4ce59a599036] succeeded in 0.009502499999996417s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 22:57:59,051: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 22:58:19,053: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[e69e8ab8-96ed-4887-8c52-6be20f767f2a]  
+[2020-10-30 22:58:19,062: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[e69e8ab8-96ed-4887-8c52-6be20f767f2a] succeeded in 0.005214600000044811s: 'Its problem with availability host: 192.168.10.3'
+[2020-10-30 23:02:23,429: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:02:23,441: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:02:24,467: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:02:24,485: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:02:24,486: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:02:24,529: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:02:32,431: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[5c0ec866-560d-453d-8eff-3be2699da276]  
+[2020-10-30 23:02:32,446: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[5c0ec866-560d-453d-8eff-3be2699da276] succeeded in 0.010057500000016262s: False
+[2020-10-30 23:08:03,273: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:08:03,288: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:08:04,333: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:08:04,355: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:08:04,356: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:08:04,425: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:08:05,763: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[12852511-b2dd-453c-ad47-a94352f7443e]  
+[2020-10-30 23:08:07,845: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[cb419fd7-b9e1-443e-bd79-4cf73ccbf988]  
+[2020-10-30 23:09:07,579: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[12852511-b2dd-453c-ad47-a94352f7443e] succeeded in 61.813367799999924s: {'averageCpu': 9, 'averageRam': 50.871880480757, 'averageDisc': 0.828413009643555, 'fullyNetworkSpeed': 245.045350097406, 'detailProcessData': [{'name': 'CompatTelRunner', 'idProcess': 3508, 'ramUsage': 4, 'processorTimeUsage': 0}, {'name': 'CompatTelRunner#1', 'idProcess': 2812, 'ramUsage': 32, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler', 'idProcess': 4032, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 4040, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 984, 'ramUsage': 37, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 2012, 'ramUsage': 45, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3004, 'ramUsage': 87, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 536, 'ramUsage': 5, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idPr...', ...}]}
+[2020-10-30 23:09:07,581: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[cb419fd7-b9e1-443e-bd79-4cf73ccbf988] succeeded in 59.7334522000001s: {'averageCpu': 4, 'averageRam': 50.871880480757, 'averageDisc': 0.827091217041016, 'fullyNetworkSpeed': 240.570577741177, 'detailProcessData': [{'name': 'CompatTelRunner', 'idProcess': 3508, 'ramUsage': 4, 'processorTimeUsage': 0}, {'name': 'CompatTelRunner#1', 'idProcess': 2812, 'ramUsage': 32, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler', 'idProcess': 4032, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 4040, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 984, 'ramUsage': 37, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 2012, 'ramUsage': 45, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3004, 'ramUsage': 87, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 536, 'ramUsage': 5, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idPr...', ...}]}
+[2020-10-30 23:11:08,212: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[0df924de-7e58-4bad-acec-bf8dead5f01b]  
+[2020-10-30 23:11:29,275: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[0df924de-7e58-4bad-acec-bf8dead5f01b] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 15, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 23:14:09,793: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:14:09,803: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:14:10,825: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:14:10,864: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:14:10,865: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:14:11,139: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:14:12,640: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[4446dc8a-3a1b-4b08-800e-49ca9c433a25]  
+[2020-10-30 23:14:33,746: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[4446dc8a-3a1b-4b08-800e-49ca9c433a25] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 15, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 23:16:27,964: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:16:27,980: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:16:29,004: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:16:29,021: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:16:29,024: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:16:29,831: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:16:36,349: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[b4061643-52fc-42e3-bf94-83928375cdb7]  
+[2020-10-30 23:16:57,443: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[b4061643-52fc-42e3-bf94-83928375cdb7] succeeded in 21.091233599999896s: True
+[2020-10-30 23:18:59,036: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 23:19:35,025: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:19:35,039: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:19:36,215: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:19:36,230: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:19:36,231: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:19:36,601: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[03ff6ac5-b449-4971-a55a-f23fb8e41736]  
+[2020-10-30 23:19:38,094: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[db1d6625-bb9b-4b9e-8125-74c32c42092d]  
+[2020-10-30 23:19:40,418: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:19:51,731: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[913c7f4b-2e3a-428a-8834-f537b8853553]  
+[2020-10-30 23:19:57,824: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[03ff6ac5-b449-4971-a55a-f23fb8e41736] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:19:59,162: ERROR/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[db1d6625-bb9b-4b9e-8125-74c32c42092d] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:20:12,819: ERROR/ForkPoolWorker-8] Task rest_api.tasks.start_command_to_task_manager[913c7f4b-2e3a-428a-8834-f537b8853553] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:21:30,322: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:21:30,332: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:21:31,354: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:21:31,384: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:21:31,387: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:21:31,832: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[d61514b1-fc22-4b0e-aebc-41fec25d9cbd]  
+[2020-10-30 23:21:31,848: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[d61514b1-fc22-4b0e-aebc-41fec25d9cbd] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:21:32,040: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[b357f34f-e084-4277-bb48-d35a45ecaa93]  
+[2020-10-30 23:21:32,051: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[b357f34f-e084-4277-bb48-d35a45ecaa93] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:21:32,196: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:21:32,982: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[fbaf6efe-2440-4caa-ad5c-ca79400dc331]  
+[2020-10-30 23:21:33,001: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[fbaf6efe-2440-4caa-ad5c-ca79400dc331] raised unexpected: EncodeError(TypeError('Object of type Popen is not JSON serializable'))
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Popen is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 449, in trace_task
+    uuid, retval, task_request, publish_result,
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 149, in mark_as_done
+    self.store_result(task_id, result, state, request=request)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 407, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 758, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 310, in encode
+    _, _, payload = self._encode(data)
+  File "/usr/local/lib/python3.7/site-packages/celery/backends/base.py", line 314, in _encode
+    return dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.7/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+kombu.exceptions.EncodeError: Object of type Popen is not JSON serializable
+[2020-10-30 23:23:30,882: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-30 23:23:30,900: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 2.00 seconds... (1/100)
+
+[2020-10-30 23:23:32,905: ERROR/MainProcess] consumer: Cannot connect to redis://redis:6379/0: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 4.00 seconds... (2/100)
+
+[2020-10-30 23:24:11,209: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:24:11,224: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:24:12,253: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:24:12,272: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:24:12,273: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:24:12,723: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[5293f731-95ac-4a27-bc78-85e65bf28d1f]  
+[2020-10-30 23:24:12,740: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[5293f731-95ac-4a27-bc78-85e65bf28d1f] succeeded in 0.014638300000115123s: '<subprocess.Popen object at 0x7f24109ee128>'
+[2020-10-30 23:24:13,164: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[99b4daae-c7c7-4293-ac09-1d94188f404f]  
+[2020-10-30 23:24:13,180: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[99b4daae-c7c7-4293-ac09-1d94188f404f] succeeded in 0.011884799999961615s: '<subprocess.Popen object at 0x7f24109d0e80>'
+[2020-10-30 23:24:13,366: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:24:28,408: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[f513a1dd-e1b5-47dd-b405-d6d8e7aca444]  
+[2020-10-30 23:24:28,427: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[f513a1dd-e1b5-47dd-b405-d6d8e7aca444] succeeded in 0.01527259999988928s: '<subprocess.Popen object at 0x7f24109d0ef0>'
+[2020-10-30 23:29:10,436: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:29:10,449: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:29:11,472: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:29:11,486: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:29:11,487: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:29:12,312: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:29:13,417: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[aa9fead5-e2ef-4bcb-a969-ce88c7a5e1d8]  
+[2020-10-30 23:30:05,560: ERROR/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[aa9fead5-e2ef-4bcb-a969-ce88c7a5e1d8] raised unexpected: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 385, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/celery/app/trace.py", line 650, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/usr/src/app/rest_api/tasks.py", line 15, in start_command_to_task_manager
+    return json.loads(dict_obj)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.7/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2020-10-30 23:33:07,332: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:33:07,342: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:33:08,364: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:33:08,380: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:33:08,381: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:35:30,256: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:35:30,268: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:35:31,290: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:35:31,306: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:35:31,307: INFO/MainProcess] celery@818091029c77 ready.
+[2020-10-30 23:35:41,444: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[0d219b5b-727c-4747-98c7-065db1b901d9]  
+[2020-10-30 23:35:42,660: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[632827af-7727-4b37-8cd3-8765ece2882a]  
+[2020-10-30 23:36:12,509: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[0d219b5b-727c-4747-98c7-065db1b901d9] succeeded in 31.05995840000014s: '255
+'
+[2020-10-30 23:36:13,737: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[632827af-7727-4b37-8cd3-8765ece2882a] succeeded in 31.07490740000003s: '255
+'
+[2020-10-30 23:42:04,223: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-30 23:42:04,233: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-30 23:42:05,258: INFO/MainProcess] mingle: all alone
+[2020-10-30 23:42:05,276: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-30 23:42:05,277: INFO/MainProcess] celery@f7b15dfa9324 ready.
+[2020-10-30 23:42:06,079: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-30 23:43:55,847: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[3fb24ef4-18fd-419b-8ef1-857c3f802e92]  
+[2020-10-30 23:44:26,982: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[3fb24ef4-18fd-419b-8ef1-857c3f802e92] succeeded in 31.131483700000018s: '255
+'
+[2020-10-31 00:16:19,390: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-31 00:16:19,403: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-31 00:16:20,425: INFO/MainProcess] mingle: all alone
+[2020-10-31 00:16:20,439: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-31 00:16:20,440: INFO/MainProcess] celery@f7b15dfa9324 ready.
+[2020-10-31 00:16:23,187: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-31 00:22:14,443: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 318, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.7/site-packages/celery/bootsteps.py", line 119, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/consumer/consumer.py", line 599, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.7/site-packages/celery/worker/loops.py", line 83, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.7/site-packages/kombu/asynchronous/hub.py", line 308, in create_loop
+    events = poll(poll_timeout)
+  File "/usr/local/lib/python3.7/site-packages/kombu/utils/eventio.py", line 84, in poll
+    return self._epoll.poll(timeout if timeout is not None else -1)
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 275, in _handle_request
+    safe_say('worker: {0} shutdown (MainProcess)'.format(how))
+  File "/usr/local/lib/python3.7/site-packages/celery/apps/worker.py", line 85, in safe_say
+    print('\n{0}'.format(msg), file=sys.__stderr__)
+BrokenPipeError: [Errno 32] Broken pipe
+[2020-10-31 00:22:58,539: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-31 00:22:58,552: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-31 00:22:59,575: INFO/MainProcess] mingle: all alone
+[2020-10-31 00:22:59,590: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-31 00:22:59,591: INFO/MainProcess] celery@f7b15dfa9324 ready.
+[2020-10-31 00:23:00,758: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-31 00:23:05,667: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[ece37ec8-17ac-43d6-8ee6-ad6cfbbeb6e2]  
+[2020-10-31 00:23:07,538: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[590c5afa-d0b4-4695-8083-018963ee4e46]  
+[2020-10-31 00:23:36,466: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[ece37ec8-17ac-43d6-8ee6-ad6cfbbeb6e2] succeeded in 30.795261700000083s: {'averageCpu': 1, 'averageRam': 54.4836221389667, 'averageDisc': 0, 'fullyNetworkSpeed': 242.657723760252, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 2156, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 2360, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 680, 'ramUsage': 46, 'processorTimeUsage': 0}, {'name': 'LogonUI#1', 'idProcess': 3844, 'ramUsage': 50, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 1972, 'ramUsage': 60, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3248, 'ramUsage': 88, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 4880, 'ramUsage': 9, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3572, 'ramUsage': 23, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess': 3476, , ...}]}
+[2020-10-31 00:23:36,467: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[590c5afa-d0b4-4695-8083-018963ee4e46] succeeded in 28.926159899999675s: {'averageCpu': 1, 'averageRam': 54.4836221389667, 'averageDisc': 0, 'fullyNetworkSpeed': 242.679794640748, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 2156, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 2360, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 680, 'ramUsage': 46, 'processorTimeUsage': 0}, {'name': 'LogonUI#1', 'idProcess': 3844, 'ramUsage': 50, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 1972, 'ramUsage': 60, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3248, 'ramUsage': 88, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 4880, 'ramUsage': 9, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3572, 'ramUsage': 23, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess': 3476, , ...}]}
+[2020-10-31 00:23:38,935: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[bfbd116a-b973-46f1-8f9d-d695eda77d53]  
+[2020-10-31 00:24:10,007: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[bfbd116a-b973-46f1-8f9d-d695eda77d53] succeeded in 31.06955590000007s: 'Its problem with availability host: 192.168.10.5'
+[2020-10-31 00:32:04,086: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-31 00:32:04,097: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-31 00:32:05,121: INFO/MainProcess] mingle: all alone
+[2020-10-31 00:32:05,137: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-31 00:32:05,138: INFO/MainProcess] celery@f7b15dfa9324 ready.
+[2020-10-31 00:32:05,265: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[cf868dfc-12b9-4463-88bd-14d1e5a8da26]  
+[2020-10-31 00:32:05,287: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[8a8530b4-3c85-453d-b021-bda4409fd233]  
+[2020-10-31 00:32:05,999: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-31 00:32:06,587: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[79d4b2c6-d788-4f50-9721-138dfedbd1c2]  
+[2020-10-31 00:32:13,784: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[ecf2fb2b-95d2-4a9f-b593-c684e1d01dd9]  
+[2020-10-31 00:32:21,849: INFO/ForkPoolWorker-1] Task rest_api.tasks.start_command_to_task_manager[ecf2fb2b-95d2-4a9f-b593-c684e1d01dd9] succeeded in 8.06201800000008s: {'averageCpu': 2, 'averageRam': 51.0834089133617, 'averageDisc': 0, 'fullyNetworkSpeed': 121.884700095644, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 2156, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 2360, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 680, 'ramUsage': 46, 'processorTimeUsage': 0}, {'name': 'LogonUI#1', 'idProcess': 3844, 'ramUsage': 50, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 1972, 'ramUsage': 55, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3248, 'ramUsage': 89, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 4880, 'ramUsage': 9, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3572, 'ramUsage': 23, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess': 3476, , ...}]}
+[2020-10-31 00:32:36,339: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[cf868dfc-12b9-4463-88bd-14d1e5a8da26] succeeded in 31.070097199999964s: {'resultRequest': False}
+[2020-10-31 00:32:36,353: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[8a8530b4-3c85-453d-b021-bda4409fd233] succeeded in 31.063958400000047s: {'resultRequest': False}
+[2020-10-31 00:32:37,666: INFO/ForkPoolWorker-8] Task rest_api.tasks.start_command_to_task_manager[79d4b2c6-d788-4f50-9721-138dfedbd1c2] succeeded in 31.07597900000019s: {'resultRequest': False}
+[2020-10-31 00:36:47,733: INFO/MainProcess] Connected to redis://redis:6379/0
+[2020-10-31 00:36:47,746: INFO/MainProcess] mingle: searching for neighbors
+[2020-10-31 00:36:48,773: INFO/MainProcess] mingle: all alone
+[2020-10-31 00:36:48,821: WARNING/MainProcess] /usr/local/lib/python3.7/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  leak, never use this setting in production environments!''')
+[2020-10-31 00:36:48,822: INFO/MainProcess] celery@f7b15dfa9324 ready.
+[2020-10-31 00:36:50,030: INFO/MainProcess] Events of group {task} enabled by remote.
+[2020-10-31 00:36:54,078: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[ce33d7db-e6c9-4ac7-8199-e37813eac0b7]  
+[2020-10-31 00:37:00,421: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[a6fac9bb-d138-488e-ad7f-a92b1a41a4e4]  
+[2020-10-31 00:37:01,326: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[8bfa3d56-65b4-4dbc-8763-0e33b8e785e4]  
+[2020-10-31 00:37:02,093: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[d7a7eff3-99e7-4dc5-904c-1e671c2cb3f2]  
+[2020-10-31 00:37:02,739: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[5230cdd5-cd54-4540-9505-78078105b7e2]  
+[2020-10-31 00:37:02,793: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[ce33d7db-e6c9-4ac7-8199-e37813eac0b7] succeeded in 8.711671300000035s: {'averageCpu': 1, 'averageRam': 51.1018644205997, 'averageDisc': 0, 'fullyNetworkSpeed': 339.071284757196, 'detailProcessData': [{'name': 'GoogleCrashHandler', 'idProcess': 2156, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'GoogleCrashHandler64', 'idProcess': 2360, 'ramUsage': 0, 'processorTimeUsage': 0}, {'name': 'Idle', 'idProcess': 0, 'ramUsage': 0, 'processorTimeUsage': 399}, {'name': 'LogonUI', 'idProcess': 680, 'ramUsage': 46, 'processorTimeUsage': 0}, {'name': 'LogonUI#1', 'idProcess': 3844, 'ramUsage': 50, 'processorTimeUsage': 0}, {'name': 'Memory Compression', 'idProcess': 1972, 'ramUsage': 55, 'processorTimeUsage': 0}, {'name': 'MsMpEng', 'idProcess': 3248, 'ramUsage': 90, 'processorTimeUsage': 0}, {'name': 'NisSrv', 'idProcess': 4880, 'ramUsage': 9, 'processorTimeUsage': 0}, {'name': 'Registry', 'idProcess': 96, 'ramUsage': 11, 'processorTimeUsage': 0}, {'name': 'SearchIndexer', 'idProcess': 3572, 'ramUsage': 23, 'processorTimeUsage': 0}, {'name': 'SecurityHealthService', 'idProcess': 3476, , ...}]}
+[2020-10-31 00:37:03,438: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[641b2d5b-47d9-402a-9faa-be0fb0012376]  
+[2020-10-31 00:37:04,654: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[02d48617-3707-47d4-b67f-e8c8bfb61f74]  
+[2020-10-31 00:37:06,526: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[f17f12d5-4602-41d4-9c5b-a74423c591c3]  
+[2020-10-31 00:37:07,363: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[a1e7669b-2be3-4f29-ba3d-d08e3a581377]  
+[2020-10-31 00:37:08,214: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[6bf54cfe-4542-45d4-8f0d-c7601928d4a0]  
+[2020-10-31 00:37:08,902: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[e91e9c2e-4fbd-4df5-86b6-52713a3d29eb]  
+[2020-10-31 00:37:09,767: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[c7e5cd49-acc5-4ed6-9616-3ac0d51ea516]  
+[2020-10-31 00:37:10,453: INFO/MainProcess] Received task: rest_api.tasks.start_command_to_task_manager[caac4609-58cd-4f1e-9d3a-2611fab084ba]  
+[2020-10-31 00:37:31,515: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[a6fac9bb-d138-488e-ad7f-a92b1a41a4e4] succeeded in 31.090727499999957s: {'resultRequest': False}
+[2020-10-31 00:37:32,409: INFO/ForkPoolWorker-8] Task rest_api.tasks.start_command_to_task_manager[8bfa3d56-65b4-4dbc-8763-0e33b8e785e4] succeeded in 31.07882269999982s: {'resultRequest': False}
+[2020-10-31 00:37:33,193: INFO/ForkPoolWorker-1] Task rest_api.tasks.start_command_to_task_manager[d7a7eff3-99e7-4dc5-904c-1e671c2cb3f2] succeeded in 31.09656159999986s: {'resultRequest': False}
+[2020-10-31 00:37:33,824: INFO/ForkPoolWorker-2] Task rest_api.tasks.start_command_to_task_manager[5230cdd5-cd54-4540-9505-78078105b7e2] succeeded in 31.080924200000027s: {'resultRequest': False}
+[2020-10-31 00:37:34,508: INFO/ForkPoolWorker-6] Task rest_api.tasks.start_command_to_task_manager[641b2d5b-47d9-402a-9faa-be0fb0012376] succeeded in 31.06783580000001s: {'resultRequest': False}
+[2020-10-31 00:37:35,722: INFO/ForkPoolWorker-3] Task rest_api.tasks.start_command_to_task_manager[02d48617-3707-47d4-b67f-e8c8bfb61f74] succeeded in 31.064934399999856s: {'resultRequest': False}
+[2020-10-31 00:37:37,598: INFO/ForkPoolWorker-4] Task rest_api.tasks.start_command_to_task_manager[f17f12d5-4602-41d4-9c5b-a74423c591c3] succeeded in 31.06935829999975s: {'resultRequest': False}
+[2020-10-31 00:37:38,446: INFO/ForkPoolWorker-5] Task rest_api.tasks.start_command_to_task_manager[a1e7669b-2be3-4f29-ba3d-d08e3a581377] succeeded in 31.080133399999795s: {'resultRequest': False}
+[2020-10-31 00:38:02,574: INFO/ForkPoolWorker-7] Task rest_api.tasks.start_command_to_task_manager[6bf54cfe-4542-45d4-8f0d-c7601928d4a0] succeeded in 31.055287300000145s: {'resultRequest': False}
+[2020-10-31 00:38:03,471: INFO/ForkPoolWorker-8] Task rest_api.tasks.start_command_to_task_manager[e91e9c2e-4fbd-4df5-86b6-52713a3d29eb] succeeded in 31.059445400000186s: {'resultRequest': False}
+[2020-10-31 00:38:04,248: INFO/ForkPoolWorker-1] Task rest_api.tasks.start_command_to_task_manager[c7e5cd49-acc5-4ed6-9616-3ac0d51ea516] succeeded in 31.051316699999916s: {'resultRequest': False}
+[2020-10-31 00:38:04,888: INFO/ForkPoolWorker-2] Task rest_api.tasks.start_command_to_task_manager[caac4609-58cd-4f1e-9d3a-2611fab084ba] succeeded in 31.061642199999824s: {'resultRequest': False}

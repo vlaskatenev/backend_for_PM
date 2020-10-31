@@ -1,4 +1,6 @@
+import json
 from django.http import JsonResponse
+from celery.result import AsyncResult
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
@@ -60,3 +62,20 @@ class StartCommandTaskManager(APIView):
     def post(self, request):
         task = start_command_to_task_manager.delay(request.data)
         return JsonResponse({"task_id": task.id}, status=202)
+
+
+# Example request for GetStatusCelery:
+# {
+#     "idProcess": "60410a3f-c489-4fe9-8815-5d844e7424cc"
+# }
+class GetStatusCelery(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        task_id = request.data["idProcess"]
+        task_result = AsyncResult(task_id)
+        return Response(dict(
+            task_id=task_id,
+            task_status=task_result.status,
+            task_result=task_result.result
+        ))
