@@ -13,8 +13,7 @@ def check_host(host_ip):
         f"ssh user@{host_ip} -i ../id_rsa exit &> /dev/null; echo $?"
     ]
     for check in array_check:
-        pre_result = subprocess.Popen(check, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
-        result = (pre_result.communicate()[0]).decode('utf-8')
+        result = start_ssh_process(check)
         if result == '255\n':
             return False
     return True

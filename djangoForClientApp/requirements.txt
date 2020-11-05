@@ -1,0 +1,6 @@
+Django
+djangorestframework
+django-cors-headers
+djoser
+pytest==5.4.1
+pytest-django==3.8.0

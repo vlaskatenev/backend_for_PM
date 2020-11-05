@@ -6,7 +6,12 @@ staticfiles
 my-db
 .history
 .idea
+*.log
 #Backendproject/core/Access/access.xml
 
 
 
+Backendproject/logs/celery.log
+Backendproject/logs/celery.log
+djangoForClientApp/rest_api/migrations/__init__.py
+djangoForClientApp/rest_api/migrations/0001_initial.py
