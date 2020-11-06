@@ -2,12 +2,12 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from datetime import datetime
 from .models import ResultWork
 from rest_framework import generics
 from .serializers import ResultWorkDetailSerializer
 
 
+# method for client PC and WEB main server
 # example json for post method
 # {
 #     "date": "2020-11-5T21:35:48.118055Z",
@@ -20,6 +20,7 @@ class InsertWorkData(generics.CreateAPIView):
     serializer_class = ResultWorkDetailSerializer
 
 
+# method ONLY web main server
 # get request for all data
 class SelectWorkData(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)

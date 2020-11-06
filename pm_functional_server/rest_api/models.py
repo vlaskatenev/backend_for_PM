@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+
 
 class ResultWork(models.Model):
     # unique=True запись должна быть уникальная

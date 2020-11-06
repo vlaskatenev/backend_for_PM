@@ -1,11 +1,11 @@
 version: '3.7'
 
 services:
-  web:
-    build: ./Backendproject
+  main-server:
+    build: pm_main_server
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./Backendproject:/usr/src/app
+      - ./pm_main_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
     environment:
       - DEBUG=1
@@ -15,14 +15,14 @@ services:
       - CELERY_BACKEND=redis://redis:6379/0
     depends_on:
       - redis
-      - db
+      - db-main
 
 
   celery:
-    build: ./Backendproject
-    command: celery worker --app=PM --loglevel=info --logfile=logs/celery.log
+    build: pm_main_server
+    command: celery worker --app=main_server --loglevel=info --logfile=logs/celery.log
     volumes:
-      - ./Backendproject:/usr/src/app
+      - ./pm_main_server:/usr/src/app
     environment:
       - DEBUG=1
       - SECRET_KEY=dbaa1_i7%*3r9-=z-+_mz4r-!qeed@(-a_r(g@k8jo8y3r27%m
@@ -30,12 +30,12 @@ services:
       - CELERY_BROKER=redis://redis:6379/0
       - CELERY_BACKEND=redis://redis:6379/0
     depends_on:
-      - web
+      - main-server
       - redis
 
-  dashboard:
-    build: ./Backendproject
-    command:  flower -A PM --port=5555 --broker=redis://redis:6379/0
+  dashboard-celery:
+    build: pm_main_server
+    command:  flower -A main_server --port=5555 --broker=redis://redis:6379/0
     ports:
       - 5555:5555
     environment:
@@ -45,12 +45,12 @@ services:
       - CELERY_BROKER=redis://redis:6379/0
       - CELERY_BACKEND=redis://redis:6379/0
     depends_on:
-      - web
+      - main-server
       - redis
       - celery
 
 
-  db:
+  db-main:
     image: mysql:latest
     restart: always
     command: --default-authentication-plugin=mysql_native_password
@@ -65,11 +65,11 @@ services:
   redis:
     image: redis:5-alpine
 
-  djangoforclientapp:
-    build: ./djangoForClientApp
+  functional-server:
+    build: pm_functional_server
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./djangoForClientApp:/usr/src/app
+      - ./pm_functional_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
     environment:
       - DEBUG=1
@@ -88,5 +88,5 @@ services:
     ports:
         - 8081:80
     depends_on:
-        - web
-        - djangoforclientapp
+        - main-server
+        - functional-server
