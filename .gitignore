@@ -5,7 +5,7 @@ env
 staticfiles
 my-db
 .history
-# .idea
+.idea
 *.log
 #pm_main_server/core/Access/access.xml
 

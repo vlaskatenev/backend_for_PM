@@ -10,10 +10,10 @@ def check_host(host_ip):
     array_check = [
         f"ping -c 1 {host_ip} &> /dev/null; echo $?",
         f"nc -zv {host_ip} 22 &> /dev/null; echo $?",
-        f"ssh user@{host_ip} -i ../id_rsa exit &> /dev/null; echo $?"
+        f"ssh user@{host_ip} -i /usr/src/id_rsa exit &> /dev/null; echo $?"
     ]
     for check in array_check:
         result = start_ssh_process(check)
-        if result == '255\n':
+        if result != '0\n':
             return False
     return True

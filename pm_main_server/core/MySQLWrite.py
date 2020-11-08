@@ -6,7 +6,7 @@ from core.Access.access_data import access_db
 class Mysql:
     def __init__(self):
         self.user_val, self.password_val, self.database_val = access_db()
-        self.host = 'db'
+        self.host = 'db-main'
         self.port = '3306'
 
     # переменные для доступа в MySQL БД. Возвращает эти переменные чтобы их можно было спользовать в других функциях

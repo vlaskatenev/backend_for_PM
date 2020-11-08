@@ -5,6 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 from .models import ResultWork
 from rest_framework import generics
 from .serializers import ResultWorkDetailSerializer
+from .tasks import start_command_to_task_manager
+from celery.result import AsyncResult
 
 
 # method for client PC and WEB main server
@@ -30,4 +32,33 @@ class SelectWorkData(generics.ListCreateAPIView):
     queryset = ResultWork.objects.filter(id_install=255777)
 
 
+
+# Example request for StartCommandTaskManager:
+# {
+#    "hostIp": "192.168.0.2",
+#    "scriptName": "avarageAllProcessData.ps1"
+# }
+class StartCommandTaskManager(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        task = start_command_to_task_manager.delay(request.data)
+        return JsonResponse({"task_id": task.id}, status=202)
+
+
+# Example request for GetStatusCelery:
+# {
+#     "idProcess": "60410a3f-c489-4fe9-8815-5d844e7424cc"
+# }
+class GetStatusCelery(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        task_id = request.data["idProcess"]
+        task_result = AsyncResult(task_id)
+        return Response(dict(
+            task_id=task_id,
+            task_status=task_result.status,
+            task_result=task_result.result
+        ))
 

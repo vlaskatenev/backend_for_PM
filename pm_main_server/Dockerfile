@@ -61,14 +61,8 @@ RUN pip3 install -r requirements.txt
 # copy entrypoint.sh
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
 
-COPY ./ssh_config /etc/ssh/ssh_config
-
 # copy project
 COPY . /usr/src/app/
-
-COPY ./id_rsa /usr/src/id_rsa
-
-RUN chmod 700 /usr/src/id_rsa
 
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
