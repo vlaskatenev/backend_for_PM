@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import ResultWork
 from rest_framework import generics
 from .serializers import ResultWorkDetailSerializer
-from .tasks import start_command_to_task_manager
+from .tasks import get_data_for_task_manager
 from celery.result import AsyncResult
 
 
@@ -42,7 +42,7 @@ class StartCommandTaskManager(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        task = start_command_to_task_manager.delay(request.data)
+        task = get_data_for_task_manager.delay(request.data)
         return JsonResponse({"task_id": task.id}, status=202)
 
 
