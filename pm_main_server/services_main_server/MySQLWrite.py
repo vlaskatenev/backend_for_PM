@@ -1,11 +1,11 @@
 import mysql.connector
 
-from core.Access.access_data import access_db
+from services_main_server.Access.access_data import user_val, password_val, database_val
 
 
 class Mysql:
     def __init__(self):
-        self.user_val, self.password_val, self.database_val = access_db()
+        self.user_val, self.password_val, self.database_val = user_val, password_val, database_val
         self.host = 'db-main'
         self.port = '3306'
 

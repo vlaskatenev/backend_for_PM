@@ -1,5 +1,5 @@
-from core.MySQLWrite import read_sql_string, read_sql_array
-from rest_api.for_views.Global.sql_pure_functions_global_api import to_compname_by_id, query_log_information, \
+from services_main_server.MySQLWrite import read_sql_string, read_sql_array
+from data_construction.for_views.Global.sql_pure_functions_global_api import to_compname_by_id, query_log_information, \
     to_start_install_date_time, to_select_program_name
 
 

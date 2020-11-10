@@ -1,6 +1,6 @@
 # import threading
 
-# from core import OLD_powershell as powershell
+# from services_main_server import OLD_powershell as powershell
 
 
 # def create_object_start_install(status):

@@ -1,10 +1,10 @@
-from core.MySQLWrite import read_sql_array, read_sql_string
-from rest_api.for_views.Global.sql_pure_functions_global_api import to_compname_by_id, \
+from services_main_server.MySQLWrite import read_sql_array, read_sql_string
+from data_construction.for_views.Global.sql_pure_functions_global_api import to_compname_by_id, \
     to_start_install_date_time
-from rest_api.for_views.HistoryDetail.sql_pure_functions__historydetail import \
+from data_construction.for_views.HistoryDetail.sql_pure_functions__historydetail import \
     to_select_program_id_from_log, to_time_worked, to_status_install, query_log_history_detail, \
     to_select_shortprogramname
-from rest_api.for_views.HistoryDetail.variables_historydetail import status_dict
+from data_construction.for_views.HistoryDetail.variables_historydetail import status_dict
 
 
 def create_object_history_detail(id_install):

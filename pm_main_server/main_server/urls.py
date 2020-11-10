@@ -18,7 +18,8 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path(r'', include('rest_api.urls')),
+    path(r'', include('ldap_commander.urls')),
+    path(r'', include('data_construction.urls')),
     path('admin/', admin.site.urls),
 
     # базовая аутентикация Django Rest

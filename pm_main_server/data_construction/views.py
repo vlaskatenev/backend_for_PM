@@ -5,12 +5,12 @@ from celery.result import AsyncResult
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from rest_api.for_views.Global.pure_functions_global_api import create_context_log
-from rest_api.for_views.HistoryDetail.pure_functions_historydetail import create_object_history_detail
-# from rest_api.for_views.StartInstall.function_start_install import start_install
-from rest_api.for_views.pure_functions_history import choise_install
-from rest_api.for_views.Manually.manually_pure_functions import create_object_manually
-from rest_api.for_views.pure_functions_runningprocess import to_install_id_listdir
+from data_construction.for_views.Global.pure_functions_global_api import create_context_log
+from data_construction.for_views.HistoryDetail.pure_functions_historydetail import create_object_history_detail
+# from ldap_commander.for_views.StartInstall.function_start_install import start_install
+from data_construction.for_views.pure_functions_history import choise_install
+from data_construction.for_views.Manually.manually_pure_functions import create_object_manually
+import data_construction.for_views.pure_functions_runningprocess
 
 
 class History(APIView):

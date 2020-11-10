@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from rest_api.for_views.Global.sql_pure_functions_global_api import query_startnumber_on_date
-from core import MySQLWrite
+from data_construction.for_views.Global.sql_pure_functions_global_api import query_startnumber_on_date
+from services_main_server import MySQLWrite
 
 
 def choise_install(date_from_form):
