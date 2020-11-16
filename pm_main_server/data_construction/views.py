@@ -9,7 +9,7 @@ from data_construction.for_views.Global.pure_functions_global_api import create_
 from data_construction.for_views.HistoryDetail.pure_functions_historydetail import create_object_history_detail
 # from ldap_commander.for_views.StartInstall.function_start_install import start_install
 from data_construction.for_views.pure_functions_history import choise_install
-from data_construction.for_views.Manually.manually_pure_functions import create_object_manually
+from data_construction.for_views.Manually.manually_pure_functions import create_object_whith_selected_programm
 import data_construction.for_views.pure_functions_runningprocess
 
 
@@ -28,23 +28,24 @@ class HistoryDetail(APIView):
         return Response(create_object_history_detail(request.data['data']))
 
 
-class RunningProcess(APIView):
-    permission_classes = (IsAuthenticated,)
+# class RunningProcess(APIView):
+#     permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
-        # форматирование даты в нужный формат
-        id_install = to_install_id_listdir()
-        return Response(create_context_log(id_install))
+#     def post(self, request):
+#         # форматирование даты в нужный формат
+#         id_install = to_install_id_listdir()
+#         return Response(create_context_log(id_install))
 
 
 class Manually(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        return Response(create_object_manually(request.data['compName']))
+        return Response(create_object_whith_selected_programm(request.data['compName']))
 
 
 # class StartInstall(APIView):
+# В этот класс передается объект сформированый в классе Manually
 #     permission_classes = (IsAuthenticated,)
 
 #     def post(self, request):
