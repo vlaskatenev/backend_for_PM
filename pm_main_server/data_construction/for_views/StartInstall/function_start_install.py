@@ -1,13 +1,7 @@
 import requests
+from django.http import JsonResponse
 
-# from services_main_server import OLD_powershell as powershell
-
-
-# def create_object_start_install(status):
-#     return "Установка началась, Choice program " + str(status)
-
-
-def start_install(data: list):
+def request_json_to_functional_server(data: list) -> dict:
     """Формируем запрос для сервера functional_server для добавления компа в группу и формированя скриптов для установки софта"""
     response = requests.post('http://functional-server:8000/functional/create-scripts-for-client',
                    json={'data': data},

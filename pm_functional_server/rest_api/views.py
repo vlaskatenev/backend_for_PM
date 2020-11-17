@@ -67,7 +67,13 @@ class GetStatusCelery(APIView):
 #    "data": [['Chrome', 'Notepad'], [1, 2], ['comp1']]
 # }
 class CreateScriptsForClient(APIView):
-    """создаем скрипты для клиента"""
+    """
+    создаем скрипты для клиента
+    example request: 
+    {
+    "data": [['Chrome', 'Notepad'], [1, 2], ['comp1']]
+    }
+    """
 
     permission_classes = (IsAuthenticated,)
 
