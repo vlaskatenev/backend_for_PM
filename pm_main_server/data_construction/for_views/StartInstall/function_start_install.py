@@ -9,11 +9,10 @@ import requests
 
 def start_install(data: list):
     """Формируем запрос для сервера functional_server для добавления компа в группу и формированя скриптов для установки софта"""
-    requests.post('http://functional-server:8000/functional/create-scripts-for-client',
-                   data={'data': data},
+    response = requests.post('http://functional-server:8000/functional/create-scripts-for-client',
+                   json={'data': data},
                    headers={
                    'Content-Type': 'application/json',
                    'Authorization': 'Token 6845ceea30ebdfd038a0e45324c90d4003803ea8'
                 })
-    response = requests.json()
-    return response
+    return response.json()

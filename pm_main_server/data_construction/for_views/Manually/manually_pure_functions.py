@@ -1,6 +1,6 @@
-from rest_api.for_views.Manually.manually_sql_variables import query_programname_from_program_var, \
+from data_construction.for_views.Manually.manually_sql_variables import query_programname_from_program_var, \
     query_var_id_from_program_var
-from core import MySQLWrite
+from services_main_server import MySQLWrite
 
 
 def choice_program_from_db():
