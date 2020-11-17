@@ -1,4 +1,4 @@
-# import threading
+import requests
 
 # from services_main_server import OLD_powershell as powershell
 
@@ -7,14 +7,13 @@
 #     return "Установка началась, Choice program " + str(status)
 
 
-# def start_install(data):
-#     comp_add = data[1]
-#     progarray = data[0]
-#     wait_number = 1
-#     print('progarray', progarray)
-#     for computer in comp_add:
-#         # вызываем функцию powershell из файла OLD_powershell.py
-#         threading.Thread(target=powershell.Powershell().powershell_start, args=[computer, progarray, wait_number]).start()
-#         wait_number += 1
-#     print("Установка началась, Choice program " + str(progarray))
-#     return create_object_start_install(progarray)
+def start_install(data: list):
+    """Формируем запрос для сервера functional_server для добавления компа в группу и формированя скриптов для установки софта"""
+    requests.post('http://functional-server:8000/functional/create-scripts-for-client',
+                   data={'data': data},
+                   headers={
+                   'Content-Type': 'application/json',
+                   'Authorization': 'Token 6845ceea30ebdfd038a0e45324c90d4003803ea8'
+                })
+    response = requests.json()
+    return response

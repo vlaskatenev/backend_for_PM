@@ -62,3 +62,17 @@ class GetStatusCelery(APIView):
             task_result=task_result.result
         ))
 
+
+# {
+#    "data": [['Chrome', 'Notepad'], [1, 2], ['comp1']]
+# }
+class CreateScriptsForClient(APIView):
+    """создаем скрипты для клиента"""
+
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        return Response(dict(requestFromServer=request.data['data'], statusOk="OK"))
+
+
+
