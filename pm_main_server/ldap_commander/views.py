@@ -27,16 +27,28 @@ class AllComputersFromAD(APIView):
             # создаем список для имен пк, форматируем и добавляем в список
             array_comp_from_ad = [str(name_pc['Name']).replace("Name: ", "") for name_pc in conn.entries]
             array_comp_from_ad.reverse()
+            array_distinguished_name = [str(distinguished_name['DistinguishedName']).replace("DistinguishedName: ", "") for distinguished_name in conn.entries]
+            array_distinguished_name.reverse()
             # формируем список имен ПК в OU. Конец
-            return JsonResponse({"data": array_comp_from_ad}, status=200)
-        return JsonResponse({"data": "Refused connection to AD"}, status=412)
+            return JsonResponse({"data": {"computerName": array_comp_from_ad, "DistinguishedName": array_distinguished_name, "workStatusWithAD": bool(conn)}}, status=200)
+        return JsonResponse({"data": "Refused connection to AD", "workStatusWithAD": bool(conn)}, status=412)
 
 
+# {
+#     "computerName": "comp2"
+# }
 class FindComputerInAD(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        pass
+        conn = connect_to_ldap_server()
+        if conn:
+            return conn.search(
+                search_base='OU=comps,DC=pre,DC=contoso,DC=com', 
+                search_filter=f'(Name={request.data["computerName"]})', 
+                search_scope='SUBTREE', 
+                attributes = ['member'])
+        return conn
 
 
 class AddComputerInADGroup(APIView):

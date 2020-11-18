@@ -1,6 +1,5 @@
 import json
 import requests
-from django.http import JsonResponse
 from celery.result import AsyncResult
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -46,7 +45,8 @@ class Manually(APIView):
         return Response(create_object_to_choose_programm(request.data['compNameList']))
 
 # {
-#    "data": [dict_name, prog_id, comp_name]
+#    "data": [dict_name, prog_id, comp_name],
+#    "DistinguishedName": ['CN=COMP2,OU=comps,DC=contoso,DC=com']
 # }
 class StartInstall(APIView):
     """отправляем запрос со списком ПК и софта на functional_server"""
@@ -54,4 +54,4 @@ class StartInstall(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        return Response(request_json_to_functional_server(request.data['data']))
+        return Response(request_json_to_functional_server(request.data))
