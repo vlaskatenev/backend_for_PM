@@ -23,3 +23,15 @@ def add_computer_in_ad(conn, array_distinguished_name):
                         array_distinguished_name)
                             ]})
     return result
+
+
+def find_computer_in_ad(computer_name: str) -> bool:
+    """Проверка есть ли компьютер в AD по имени или его нет в AD"""
+    conn = connect_to_ldap_server()
+    if conn:
+        return conn.search(
+            search_base='OU=comps,DC=pre,DC=contoso,DC=com',
+            search_filter=f'(Name={computer_name})',
+            search_scope='SUBTREE',
+            attributes = ['member'])
+    return False

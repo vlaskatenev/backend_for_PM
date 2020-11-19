@@ -44,7 +44,7 @@ class FindComputerInAD(APIView):
         conn = connect_to_ldap_server()
         if conn:
             return conn.search(
-                search_base='OU=comps,DC=pre,DC=contoso,DC=com', 
+                search_base='OU=comps,DC=pre,DC=contoso,DC=com',
                 search_filter=f'(Name={request.data["computerName"]})', 
                 search_scope='SUBTREE', 
                 attributes = ['member'])

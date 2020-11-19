@@ -9,6 +9,7 @@ from data_construction.for_views.HistoryDetail.pure_functions_historydetail impo
 from data_construction.for_views.StartInstall.function_start_install import request_json_to_functional_server
 from data_construction.for_views.pure_functions_history import choise_install
 from data_construction.for_views.Manually.manually_pure_functions import create_object_to_choose_programm
+from services_main_server.ldap import find_computer_in_ad
 import data_construction.for_views.pure_functions_runningprocess
 
 
@@ -38,20 +39,31 @@ class HistoryDetail(APIView):
 # {
 #    "compNameList": ['comp1']
 # }
-class Manually(APIView):
+class ShowProgrammList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         return Response(create_object_to_choose_programm(request.data['compNameList']))
 
+
 # {
 #    "data": [dict_name, prog_id, comp_name],
-#    "DistinguishedName": ['CN=COMP2,OU=comps,DC=contoso,DC=com']
+#    "DistinguishedName": ['CN=COMP2,OU=comps,DC=contoso,DC=com'],
+#    "methodInputnamePc": True
 # }
 class StartInstall(APIView):
     """отправляем запрос со списком ПК и софта на functional_server"""
-
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        if request.data["methodInputnamePc"]:
+            request.data["data"][2] = check_computer_name_list(request.data["data"][2])
         return Response(request_json_to_functional_server(request.data))
+
+
+def check_computer_name_list(computr_name_list):
+        array = []
+        for computer_name in computr_name_list:
+            if find_computer_in_ad(computer_name):
+                array.append(computer_name)
+        return array
