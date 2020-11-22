@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.Manually.as_view()),
+    # url(r'^$', views.Manually.as_view()),
     url(r'^history$', views.History.as_view()),
     # url(r'^running_process$', views.RunningProcess.as_view()),
     url(r'^show-programm-list$', views.ShowProgrammList.as_view()),

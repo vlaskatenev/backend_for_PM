@@ -56,6 +56,20 @@ class StartInstall(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+
+        # записываем событие в таблицу LogsInstallationSoft
+        from data_construction.models import LogsInstallationSoft, Soft
+        from django.utils import timezone
+        for comp_name in request.data["data"][2]:
+            for prog_id in request.data["data"][1]:
+                LogsInstallationSoft.objects.create(date_time=timezone.now(),
+                startnumber=LogsInstallationSoft.objects.order_by('-pk')[0].id_install + 1,
+                computer_name=comp_name,
+                program_id=Soft.objects.get(pk=prog_id),
+                events_id=6,
+                result_work=False)
+
+
         if request.data["methodInputnamePc"]:
             request.data["data"][2] = check_computer_name_list(request.data["data"][2])
         return Response(request_json_to_functional_server(request.data))
