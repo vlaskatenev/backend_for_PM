@@ -63,7 +63,7 @@ class StartInstall(APIView):
         for comp_name in request.data["data"][2]:
             for prog_id in request.data["data"][1]:
                 LogsInstallationSoft.objects.create(date_time=timezone.now(),
-                startnumber=LogsInstallationSoft.objects.order_by('-pk')[0].id_install + 1,
+                startnumber=LogsInstallationSoft.objects.last().id_install + 1,
                 computer_name=comp_name,
                 program_id=Soft.objects.get(pk=prog_id),
                 events_id=6,

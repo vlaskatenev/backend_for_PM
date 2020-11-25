@@ -1,6 +1,7 @@
 import json
 from celery import shared_task
 from core.startSshProcess import start_process_on_device, check_host
+from .models import ResultWorkForTaskManager
 
 
 @shared_task
@@ -14,6 +15,13 @@ def get_data_for_task_manager(data: dict) -> dict:
             dict_from_device["resultRequest"] = True
             return dict_from_device
     return dict(resultRequest=False)
+
+
+@shared_task
+def export_information_process() -> dict:
+    
+    dict_from_db = list(ResultWorkForTaskManager.objects.filter(result_work=True).values())
+    return json.loads(json.dumps(dict(data=dict_from_db)))
 
 
 def check_response_from_device(response: str) -> dict:

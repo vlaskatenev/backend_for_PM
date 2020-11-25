@@ -7,6 +7,7 @@ def start_process_on_device(command: str) -> str:
     result = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
     return (result.communicate()[0]).decode('utf-8')
 
+
 def check_host(host_ip: str) -> bool:
     """ 
         The function checks the availability of the device by ping,

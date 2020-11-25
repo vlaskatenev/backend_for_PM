@@ -54,9 +54,16 @@ class ConcreteSubject(Subject):
         print("Subject: Attached an observer.", self._observers)
 
     # здесь будет удаление подписки на объект и дальнейшая запись в БД об успешном окончании задания
-    def detach(self, observer) -> None:
+    def detach(self, response_from_pc) -> None:
+        temp_array = []
+        for i in range(len(self._observers)):
+            if response_from_pc['result_work']:
+                if response_from_pc['id_install'] == self._observers[i]['id_install']:
+                    temp_array.append(self._observers[i])
+        for obj in temp_array:
+            self._observers.remove(obj)
 
-        self._observers.remove(observer)
+
         print("Subject: Detached an observer.", self._observers)
     """
     Методы управления подпиской.
@@ -68,10 +75,9 @@ class ConcreteSubject(Subject):
         """
 
         print("Subject: Notifying observers...")
-        for observer in self._observers:
-            if response_from_pc['idInstall'] == observer['idInstall']:
-                observer['resultWork'] = response_from_pc['resultWork']
-            print('Это комп на который я подписан: ', observer)
+        for i in range(len(self._observers)):
+            if response_from_pc['id_install'] == self._observers[i]['id_install']:
+                self._observers[i]['result_work'] = response_from_pc['result_work']
             
 
 

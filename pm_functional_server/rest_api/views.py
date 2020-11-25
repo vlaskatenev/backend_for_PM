@@ -4,10 +4,12 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from .models import ResultWork
 from rest_framework import generics
-from .serializers import ResultWorkDetailSerializer
-from .tasks import get_data_for_task_manager
+from .serializers import ResultWorkForTaskManagerDetailSerializer
+from .models import ResultWorkForTaskManager
+from .tasks import get_data_for_task_manager, export_information_process
 from celery.result import AsyncResult
 from django.conf import settings
+
 
 # method for client PC and WEB main server
 # example json for post method
@@ -19,15 +21,15 @@ class InsertWorkData(generics.CreateAPIView):
     """Добавляем задание в слушателя и записываем его в БД"""
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkDetailSerializer
+    serializer_class = ResultWorkForTaskManagerDetailSerializer
 
     def post(self, request):
         task = get_data_for_task_manager.delay(request.data)
-        ResultWorkDetailSerializer.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
+        ResultWorkForTaskManager.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
 
         settings.OBSERVER.attach(request.data)
 
-        return JsonResponse({"task_id": task.id}, status=202)
+        return JsonResponse({"task_id": task.id, "observers": settings.OBSERVER._observers}, status=202)
 
 
 # {
@@ -38,16 +40,16 @@ class InsertWorkDataFromClient(generics.CreateAPIView):
     """Клиент уведомляет слушателя, вносим запись в БД, изменяем состояние слушателя и удаляем объект клиента из массива слушателя при занчении resultWork = True"""
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkDetailSerializer
+    serializer_class = ResultWorkForTaskManagerDetailSerializer
 
     def post(self, request):
-        ResultWorkDetailSerializer.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
+        ResultWorkForTaskManager.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
         
-        if request.data["resultWork"]:
+        if request.data["result_work"]:
             settings.OBSERVER.notify(request.data)
             settings.OBSERVER.detach(request.data)
 
-        return JsonResponse({"task": request.data}, status=200)
+        return JsonResponse({"task": request.data, "observers": settings.OBSERVER._observers}, status=200)
 
 
 
@@ -60,7 +62,7 @@ class InsertWorkDataFromClient(generics.CreateAPIView):
 class SelectWorkData(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkDetailSerializer
+    serializer_class = ResultWorkForTaskManagerDetailSerializer
 
     queryset = ResultWork.objects.filter(id_install=255777)
 
@@ -94,6 +96,14 @@ class GetStatusCelery(APIView):
             task_status=task_result.status,
             task_result=task_result.result
         ))
+
+
+class StartExportInformationProcess(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        task = export_information_process.delay()
+        return JsonResponse({"task_id": task.id}, status=202)
 
 
 # {
