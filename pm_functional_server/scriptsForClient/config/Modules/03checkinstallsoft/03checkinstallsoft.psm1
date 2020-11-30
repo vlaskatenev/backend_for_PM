@@ -6,9 +6,9 @@
 
 function checkinstallsoft { 
 
-        Import-Module .\rest_api\config\Modules\14MySQLout
-        Import-Module .\rest_api\config\Modules\13ChekRemoveFile
-        Import-Module .\rest_api\config\Modules\checkingProcessTask
+        Import-Module .\config\Modules\14logsWrite
+        Import-Module .\config\Modules\13ChekRemoveFile
+        Import-Module .\config\Modules\checkingProcessTask
 
         #####################################################################
         # Проверка установлен ли софт
@@ -74,20 +74,12 @@ For (   [int]`$i = 0;
         if ($NewArray1.Count -eq 2) {
 
                 Remove-Item -Path "\\$ipaddressHost\c$\Setup\hashUninstallStringAndDisplayName.cli" -Force
-                $global:fieldsinmain_log = "script_id,"
-                $global:fields = "6,"
-                $global:events_id = "37"
-                MySQLWrite
+                logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "6," -eventsId 37
 
         }
         else {
-
-                $global:fieldsinmain_log = ""
-                $global:fields = ""
-                $global:events_id = "36"
-                MySQLWrite
+                logsWrite -programName $ProgrammName -eventsId 36
                 exit
-
         }
 
         $allSoft32 = $NewArray1[0]
@@ -95,11 +87,7 @@ For (   [int]`$i = 0;
         $string64 = $allSoft64 -like "*$ProgrammName*"
 
         if ($string64.Length -ne 0) {
-
-                $global:fieldsinmain_log = ""
-                $global:fields = ""
-                $global:events_id = "9"
-                MySQLWrite
+                logsWrite -programName $ProgrammName -eventsId 9
                 $Global:SoftHave = 0
 
         }
@@ -108,20 +96,12 @@ For (   [int]`$i = 0;
                 $string32 = $allSoft32 -like "*$ProgrammName*"
 
                 if ($string32.Length -ne 0) {
-
-                        $global:fieldsinmain_log = ""
-                        $global:fields = ""
-                        $global:events_id = "8"
-                        MySQLWrite      
+                        logsWrite -programName $ProgrammName -eventsId 8     
                         $Global:SoftHave = 0
 
                 }
                 else {
-
-                        $global:fieldsinmain_log = ""
-                        $global:fields = ""
-                        $global:events_id = "2"
-                        MySQLWrite
+                        logsWrite -eventsId 2
                         $Global:SoftHave = 1
 
                 }

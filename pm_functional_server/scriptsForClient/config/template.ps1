@@ -1,32 +1,25 @@
 ﻿
 #####################################################################
 # Проверка установлен ли софт. Начало
-
-Import-Module .\rest_api\config\Modules\03checkinstallsoft
-Import-Module .\rest_api\config\Modules\04startCheckProcess
-Import-Module .\rest_api\config\Modules\check_installer_file_and_install_soft
+Import-Module .\config\Modules\14logsWrite
+Import-Module .\config\Modules\03checkinstallsoft
+Import-Module .\config\Modules\04startCheckProcess
+Import-Module .\config\Modules\check_installer_file_and_install_soft
+Import-Module .\config\Modules\09removeNoPowerShell
 
 # запись события о старте установки приложения в SQL
-$global:fieldsinmain_log = ""
-$global:fields = ""
-$global:events_id = "38"
-MySQLWrite
+logsWrite -programName $ProgrammName -eventsId 38
 
 checkinstallsoft
-$global:fieldsinmain_log = "script_id,"
-$global:fields = "1,"
-$global:events_id = "37"
-MySQLWrite
+
+logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "1," -eventsId 37
 
 # Проверка установлен ли софт. Конец
 #####################################################################
 
 if ($SoftHave -eq 0) {
 
-        $global:fieldsinmain_log = ""
-        $global:fields = ""
-        $global:events_id = "7"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -eventsId 7
 
 }
 else {
@@ -34,7 +27,7 @@ else {
         # копируем дистрибутив или архив zip 
         copyinstallerNEW 
         # Следующая функция отвечает за проверку загруженных файлов по хешу MD5
-        checkhashinstallerfile
+        # checkhashinstallerfile
         # Если был загружен архив с программой - об будет разархивирован этой функцией
         extractarchive
         # Проверка загруженного (или разархивированного архива) дистрибутива на целостность по вычисленю хешей всех файлов (если дистрибути из нескольких и больше файлов)
@@ -50,15 +43,12 @@ else {
 
         }
 
-        $folder2 = Get-ChildItem "\\$ipaddressHost\C$\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -File "*$programmShortcuts*"
+        $folder2 = Get-ChildItem "C:\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -File "*$programmShortcuts*"
 
         while ($folder2 -eq $null) {
 
-                $folder2 = Get-ChildItem "\\$ipaddressHost\C$\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -File "*$programmShortcuts*"
-                $global:fieldsinmain_log = ""
-                $global:fields = ""
-                $global:events_id = "3"
-                MySQLWrite
+                $folder2 = Get-ChildItem "C:\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -File "*$programmShortcuts*"
+                logsWrite -programName $ProgrammName -eventsId 3
                 startCheckProcess
                 Wait-Event -Timeout 10
 
@@ -66,10 +56,7 @@ else {
 
         if ($folder2 -ne $null) {
 
-                $global:fieldsinmain_log = ""
-                $global:fields = ""
-                $global:events_id = "10"
-                MySQLWrite
+                logsWrite -programName $ProgrammName -eventsId 10
             
         }
 
@@ -77,8 +64,6 @@ else {
         #####################################################################
         
         # Удаление загруженных файлов
-
-        Import-Module .\rest_api\config\Modules\09removeNoPowerShell
         removeNoPowerShell
 
         # Удаление загруженных файлов. Конец
@@ -86,10 +71,7 @@ else {
 }
 
  # Запись в БД события об успешном завершении процесса установки
-        $global:fieldsinmain_log = ""
-        $global:fields = ""
-        $global:events_id = "52"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -eventsId 52
 
 
 

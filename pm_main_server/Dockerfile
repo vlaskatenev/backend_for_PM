@@ -18,7 +18,7 @@ RUN yum install -y gssntlmssp
 
 RUN yum -y install yum-utils
 RUN yum -y groupinstall development
-RUN yum -y install wget openssl-devel sqlite-devel libffi-devel bzip2-devel libzip-devel xz-devel lzma-sdk-devel uuid-devel readline-devel ncurses-devel nc
+RUN yum -y install wget openssl-devel sqlite-devel libffi-devel bzip2-devel libzip-devel xz-devel lzma-sdk-devel uuid-devel readline-devel ncurses-devel nc nano
 
 RUN wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz
 RUN tar xJf Python-3.7.3.tar.xz

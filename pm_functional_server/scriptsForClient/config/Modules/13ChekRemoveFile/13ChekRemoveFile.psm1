@@ -1,28 +1,29 @@
-﻿function ChekRemoveFile {
+﻿Import-Module .\rest_api\config\Modules\14logsWrite
 
-        Import-Module .\rest_api\config\Modules\14MySQLout
-        $TestPath = Test-Path -Path $FileDelete
+function ChekRemoveFile {
+Param (
+        $fileDelete
+        )
 
-if ($TestPath -eq $true) {
+        $testPath = Test-Path -Path $fileDelete
 
-        Remove-Item $FileDelete -Recurse 
-        $TestPath = Test-Path -Path $FileDelete
+if ($testPath) {
 
-if ($TestPath -eq $false) {
-     
-        $global:logSTring = "$FileDelete was deleted"
-        MySQLWrite     
+        Remove-Item $fileDelete -Recurse 
+        $testPath = Test-Path -Path $fileDelete
+
+if (-Not $testPath) {
+
+        logsWrite  -logString "$fileDelete was deleted"
         
 } else {
      
-        $global:logSTring = "$FileDelete was NOT deleted, maybe the file is blocked by the process"
-        MySQLWrite 
+        logsWrite -logString "$fileDelete was NOT deleted, maybe the file is blocked by the process"
 
 } 
 } else {
-              
-        $global:logSTring = "$FileDelete no file"
-        MySQLWrite
+
+        logsWrite -logString "$fileDelete no file"
 
 }
 }

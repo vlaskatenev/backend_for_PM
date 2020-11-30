@@ -1,44 +1,39 @@
 ﻿
+Import-Module .\rest_api\config\Modules\14logsWrite
+
+$pathToPowershell = "c:\windows\system32\windowspowershell\v1.0\powershell.exe"
+$pathToWorkingscriptCli = "c:\setup\workingscript.cli"
+$pathToWorkingscriptPs1 = "C:\Setup\workingscript.ps1"
+
 function checkingProcessTask {
 
-    Import-Module .\rest_api\config\Modules\14MySQLout
-
     # Усзнаем PID процесса. Сам скрипт (значение переменной fileMakedScript) находится в разных файлах (смотря где вызываются)
-    $fileMakedScript | Out-File -Encoding UTF8 \\$ipaddressHost\C$\Setup\$scriptname
+    $fileMakedScript | Out-File -Encoding UTF8 C:\Setup\$scriptname
     
-    if ((Test-Path "\\$ipaddressHost\C$\Setup\$scriptname") -eq 1) {
+    if ((Test-Path "C:\Setup\$scriptname") -eq 1) {
 
-        Start-Process -FilePath .\rest_api\config\bin\PsExec.exe -ArgumentList "\\$ipaddressHost powershell -ExecutionPolicy Bypass -File C:\Setup\$scriptname" -WindowStyle hidden
+        start-process -filepath $pathToPowershell -argumentlist "-executionpolicy bypass -file c:\setup\$scriptname -windowstyle hidden"
 
     } else {
 
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "11,"
-        $global:events_id = "15"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 15
 
     }
 
-    while ((Test-Path "\\$ipaddressHost\C$\Setup\valuePID.cli") -eq 0) {
+    while ((Test-Path "c:\setup\valuePID.cli") -eq 0) {
         
     Wait-Event -Timeout 4
     [int]$wait = $wait + 1
     
-    if ($wait -eq 1) {    
-        
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "11,"
-        $global:events_id = "41"
-        MySQLWrite
+    if ($wait -eq 1) {
+
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 41
     }
 
     if ($wait -eq 12) {
         
         [int]$wait = 1
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "11,"
-        $global:events_id = "42"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 42
         # После поддтверждения запуск скрипта будет повторный и проверка работает скрипт или нет
         exit
       
@@ -46,36 +41,29 @@ function checkingProcessTask {
     }
 
     # применяем значение PID к переменной
-    $global:ProcessPID = Import-Clixml -Path "\\$ipaddressHost\C$\Setup\valuePID.cli"
-    Remove-Item  "\\$ipaddressHost\C$\Setup\valuePID.cli" -Force
+    $processPID = Import-Clixml -Path "c:\setup\valuePID.cli"
+    Remove-Item  "c:\setup\valuePID.cli" -Force
     
     # применяем переменные для цикла while который будет проверять работает ли процесс с нужным PID
-    $global:workingscript = "`$filetemp = Get-CimInstance -Class Win32_Process -Filter  `"ProcessId = '$ProcessPID'`"
-                            [bool]`$haveproceccPID = `$filetemp.ProcessId -like $ProcessPID
-                        Export-Clixml -Path `C:\setup\workingscript.cli -Encoding UTF8 -InputObject `$haveproceccPID"
+    $workingScript = "`$filetemp = Get-CimInstance -Class Win32_Process -Filter  `"ProcessId = '$processPID'`"
+                            [bool]`$haveproceccPID = `$filetemp.ProcessId -like $processPID
+                        Export-Clixml -Path $pathToWorkingscriptCli -Encoding UTF8 -InputObject `$haveproceccPID"
 
-    $global:workingscript | Out-File -Encoding UTF8 \\$ipaddressHost\C$\Setup\workingscript.ps1
-    Start-Process -FilePath .\rest_api\config\bin\PsExec.exe -ArgumentList "\\$ipaddressHost powershell -ExecutionPolicy Bypass -File C:\Setup\workingscript.ps1" -WindowStyle hidden
+    $workingScript | Out-File -Encoding UTF8 $pathToWorkingscriptPs1
+    Start-Process -FilePath $pathToPowershell -ArgumentList "-ExecutionPolicy Bypass -File $pathToWorkingscriptPs1" -WindowStyle hidden
     [int]$wait = 1
 
-    while ((Test-Path "\\$ipaddressHost\C$\Setup\workingscript.cli") -eq 0) {
+    while ((Test-Path $pathToWorkingscriptCli) -eq 0) {
             
         Wait-Event -Timeout 4
 
     if ($wait -eq 1) {    
-        
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "12,"
-        $global:events_id = "41"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 41
     }
 
     if ($wait -eq 12) {
         [int]$wait = 1
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "12,"
-        $global:events_id = "42"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "12," -eventsId 42
         # После 10 проверки будет перезапуск процесса который создает файл workingscript.cli
         exit
     }
@@ -84,32 +72,25 @@ function checkingProcessTask {
 
     }
 
-    $global:workingscriptCLI = Import-Clixml -Path "\\$ipaddressHost\C$\Setup\workingscript.cli"
-    Remove-Item  "\\$ipaddressHost\C$\Setup\workingscript.cli" -Force
+    $workingscriptCLI = Import-Clixml -Path $pathToWorkingscriptCli
+    Remove-Item  $pathToWorkingscriptCli -Force
 
     # зацикливаем поиск процесса пока он не завершится и перезапускаем скрипт для поиска процесса с нужным PID
-    while ( $workingscriptCLI -eq 1) {
+    while ($workingscriptCLI) {
 
-        Start-Process -FilePath .\rest_api\config\bin\PsExec.exe -ArgumentList "\\$ipaddressHost powershell -ExecutionPolicy Bypass -File C:\Setup\workingscript.ps1" -WindowStyle hidden
+        Start-Process -FilePath $pathToPowershell -ArgumentList "-ExecutionPolicy Bypass -File $pathToWorkingscriptPs1" -WindowStyle hidden
         [int]$wait = 1
-        while ((Test-Path "\\$ipaddressHost\C$\Setup\workingscript.cli") -eq 0) {
+        while ((Test-Path $pathToWorkingscriptCli) -eq 0) {
             
             Wait-Event -Timeout 4
                 
     if ($wait -eq 1) {    
-        
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "11,"
-        $global:events_id = "43"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 43
     }
 
     if ($wait -eq 12) {
         [int]$wait = 1
-        $global:fieldsinmain_log = "script_id,"
-        $global:fields = "11,"
-        $global:events_id = "44"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 44
         # После 10 проверки будет перезапуск процесса который создает файл workingscript.cli
         exit
     }
@@ -118,23 +99,16 @@ function checkingProcessTask {
 
     }
 
-        $global:workingscriptCLI = Import-Clixml -Path "\\$ipaddressHost\C$\Setup\workingscript.cli"
-        Remove-Item  "\\$ipaddressHost\C$\Setup\workingscript.cli" -Force
+        $workingscriptCLI = Import-Clixml -Path $pathToWorkingscriptCli
+        Remove-Item  $pathToWorkingscriptCli -Force
         Wait-Event -Timeout 4
 
 }
 
 # удаляем скрипты "проверки запуска процесса"
-Remove-Item  "\\$ipaddressHost\C$\Setup\workingscript.ps1" -Force
-$global:fieldsinmain_log = "script_id, "
-$global:fields = "13, "
-$global:events_id = "45"
-MySQLWrite
+Remove-Item  $pathToWorkingscriptPs1 -Force
+logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "13," -eventsId 45
 
-Remove-Item "\\$ipaddressHost\C$\Setup\$scriptname" -Force
-$global:fieldsinmain_log = "script_id, "
-$global:fields = "14, "
-$global:events_id = "45"
-MySQLWrite
-
+Remove-Item "c:\setup\$scriptname" -Force
+logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "14," -eventsId 45
 }

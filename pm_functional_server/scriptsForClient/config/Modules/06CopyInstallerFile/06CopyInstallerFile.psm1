@@ -1,67 +1,37 @@
-﻿function startInstallZIP { 
+﻿# Модуль компирует на комп архив с программой или EXE файл установщик
+Import-Module .\rest_api\config\Modules\14logsWrite
+Import-Module .\rest_api\config\Modules\checkingProcessTask
+Import-Module BitsTransfer
 
-        Import-Module .\rest_api\config\Modules\14MySQLout
-        Import-Module .\rest_api\config\Modules\checkingProcessTask
+function startInstallZIP { 
 
 # начало копирования и распаковки
 
-         
-        #$global:logSTring = "$archive starting copy"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "24"
-        MySQLWrite
-
-# Импортируем модуль BITS
-
-        Import-Module BitsTransfer
+        logsWrite -programName $ProgrammName -eventsId 24
 
 # Запускаем закачку асинхронно
 
         Start-BitsTransfer -Source $PathtoSetup\Setup\$archive -Destination \\$ipaddressHost\C$\Setup\$archive -Priority low
-
-
-        $TestPath = Test-Path -Path "\\$ipaddressHost\C$\Setup\$archive"
-
     
-if ($TestPath -eq 1) {
+        if (Test-Path -Path "\\$ipaddressHost\C$\Setup\$archive") {
 
-        #$global:logSTring = "$archive installer copied"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "11"
-        MySQLWrite
-        
-} else {
+                logsWrite -programName $ProgrammName -eventsId 11
+                
+        } else {
 
-        #$global:logSTring = "$archive installer NOT copied"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "12"
-        MySQLWrite
-        exit
-        
-}
+                logsWrite -programName $ProgrammName -eventsId 12
+                exit
+                
+        }
 }
 
-function CopyExeFile { 
-
-        Add-Type –Path 'C:\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll'
-        Import-Module .\rest_api\config\Modules\14MySQLout
+function CopyExeFile {
 
 # Установка софта с установщика без архива
-       
-        #$global:logSTring = "$ProgrammName starting copy on computer"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "24"
-        MySQLWrite
+
+        logsWrite -programName $ProgrammName -eventsId 24
 
 # Копируем дистрибутивы не в архиве zip
-
-# Импортируем модуль BITS
-
-        Import-Module BitsTransfer
 
 # Запускаем закачку асинхронно
 
@@ -69,23 +39,13 @@ function CopyExeFile {
 
 # Завершение копирования дистрибутива
 
-        $TestPath = Test-Path -Path "\\$ipaddressHost\C$\Setup\$ProgrammFile"
+if (Test-Path -Path "\\$ipaddressHost\C$\Setup\$ProgrammFile") {
 
-if ($TestPath -eq 1) {
-
-        #$global:logSTring = "$ProgrammName downloaded to computer"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "4"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -eventsId 4
  
 } else {
 
-        #$global:logSTring = "$ProgrammName NOT downloaded to computer"
-	$global:fieldsinmain_log = ""
-	$global:fields = ""
-	$global:events_id = "15"
-        MySQLWrite
+        logsWrite -programName $ProgrammName -eventsId 15
         exit
         
 }

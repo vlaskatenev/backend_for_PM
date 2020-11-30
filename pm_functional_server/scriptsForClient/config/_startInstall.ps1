@@ -1,147 +1,80 @@
-﻿Param (
-[Parameter (Mandatory=$true, Position=1)]
-[string]$Global:ComputerName,
+﻿Import-Module .\config\Modules\14logsWrite
+Import-Module .\config\Modules\15programmVareables
 
-[Parameter (Mandatory=$true, Position=2)]
-[string]$global:programm1,
-
-[Parameter (Mandatory=$true, Position=3)]
-[int]$Global:maxstartnumber
-
-)
-
-. $env:APPDATA\varForWorkPineapples.ps1
-
-Import-Module .\rest_api\config\Modules\14MySQLout
-Import-Module .\rest_api\config\Modules\02check-Host-availability
-
-# проверяем доступность ПК
-checkHostavailability
-
-
-Write-Host $global:programm
-$global:programm = $global:programm1.split("s")
-Write-Host $global:programm
+$global:programm = allProgramm
 
 For (   [int]$i = 0;
         $i -LT $global:programm.Length;
         $i += 1 ) {
 
-        $choice = $global:programm[$i]
-
-        #####################################################################
-
-
         #####################################################################
         # Назначение переменных для софта. Начало 
 
-        $global:zapros = "procName"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;" 
-        zaprosNEW
-        $Global:procName = $text_string
+        $Global:procName = $programm[$i].procName
 
         #####################################################################
 
-        $global:zapros = "programname"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:ProgrammName = $text_string
+        $Global:ProgrammName = $programm[$i].ProgrammName
 
         #####################################################################
 
-        $global:zapros = "procDescription"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:procDescription = $text_string
+        $Global:procDescription = $programm[$i].procDescription
 
         #####################################################################
 
-        $global:zapros = "shortprogramname"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:ShortProgrammName = $text_string
+        $Global:ShortProgrammName = $programm[$i].ShortProgrammName
 
         #####################################################################
 
-        $global:zapros = "programfile"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:ProgrammFile = $text_string
+        $Global:ProgrammFile = $programm[$i].ProgrammFile
 
         #####################################################################
 
-        $global:zapros = "keystring"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:key = $text_string
+        $Global:key = $programm[$i].key
 
         #####################################################################
 
-        $global:zapros = "zip"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:zip = $text_string
+        $Global:zip = $programm[$i].zip
 
         #####################################################################
 
-        $global:zapros = "archive"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:archive = $text_string
+        $Global:archive = $programm[$i].archive
 
         #####################################################################
 
-        $global:zapros = "distributename"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:DistributeName = $text_string
+        $Global:DistributeName = $programm[$i].DistributeName
 
         #####################################################################
 
-        $global:zapros = "programshortcut"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:programmShortcuts = $text_string
+        $Global:programmShortcuts = $programm[$i].programmShortcuts
 
         #####################################################################
 
-        $global:zapros = "driveletter"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:DriveLetter = $text_string
+        $Global:DriveLetter = $programm[$i].DriveLetter
 
         #####################################################################
 
-        $global:zapros = "pathtosetup"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:Path = $text_string
+        $Global:Path = $programm[$i].DriveLetter
 
         #####################################################################
 
-        $global:zapros = "hashoriginalfile"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:hashoriginalfile = $text_string
+        $Global:hashoriginalfile = $programm[$i].hashoriginalfile
 
         #####################################################################
 
-        $global:zapros = "hashprograminstaller"
-        $global:fullzapros = "SELECT $zapros FROM program_var WHERE var_id=$choice;"
-        zaprosNEW
-        $Global:hashprograminstaller = $text_string
+        $Global:hashprograminstaller = $programm[$i].hashprograminstaller
 
         # Назначение переменных для софта. Конец
         #####################################################################
 
-        . .\rest_api\config\template.ps1
+        . .\template.ps1
 
 }
 
-        $global:fieldsinmain_log = ""
-        $global:fields = ""
-        $global:events_id = "50"
-        MySQLWriteWithoutProgramName
+        logsWrite -eventsId 50
 
+
+
+        # что за PID?????
         Stop-Process -ID $PID -Force
 

@@ -1,7 +1,9 @@
-﻿function removeNoPowerShell { 
+﻿# создаем скрипт который будет запускаться в планировщике и создаем задание на выполнение этого скрипта
+Import-Module .\rest_api\config\Modules\14logsWrite
+Import-Module .\rest_api\config\Modules\13ChekRemoveFile
+Import-Module .\rest_api\config\Modules\checkingProcessTask
 
-        Import-Module .\rest_api\config\Modules\13ChekRemoveFile
-        Import-Module .\rest_api\config\Modules\checkingProcessTask
+function removeNoPowerShell {
 
 # Делаем скрипт для создания задания в планировщике заданий
 
