@@ -74,11 +74,11 @@ For (   [int]`$i = 0;
         if ($NewArray1.Count -eq 2) {
 
                 Remove-Item -Path "\\$ipaddressHost\c$\Setup\hashUninstallStringAndDisplayName.cli" -Force
-                logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "6," -eventsId 37
+                logsWrite -fieldsinmainLog "script_id," -fields "6," -eventsId 37
 
         }
         else {
-                logsWrite -programName $ProgrammName -eventsId 36
+                logsWrite -eventsId 36
                 exit
         }
 
@@ -87,7 +87,7 @@ For (   [int]`$i = 0;
         $string64 = $allSoft64 -like "*$ProgrammName*"
 
         if ($string64.Length -ne 0) {
-                logsWrite -programName $ProgrammName -eventsId 9
+                logsWrite -eventsId 9
                 $Global:SoftHave = 0
 
         }
@@ -96,7 +96,7 @@ For (   [int]`$i = 0;
                 $string32 = $allSoft32 -like "*$ProgrammName*"
 
                 if ($string32.Length -ne 0) {
-                        logsWrite -programName $ProgrammName -eventsId 8     
+                        logsWrite -eventsId 8     
                         $Global:SoftHave = 0
 
                 }

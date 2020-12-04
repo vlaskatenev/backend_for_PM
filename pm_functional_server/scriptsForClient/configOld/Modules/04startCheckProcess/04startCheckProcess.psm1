@@ -57,19 +57,19 @@ if ($procStatus -ne $null) {
 
 } else {
         
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "8," -eventsId 14
+        logsWrite -fieldsinmainLog "script_id," -fields "8," -eventsId 14
 
 }
 
 if ($procStatus -eq 1) {
-        logsWrite -programName $ProgrammName -eventsId 40
+        logsWrite -eventsId 40
         [int]$global:waitCheckProcess = $null
 } else {
-        logsWrite -programName $ProgrammName -eventsId 18
+        logsWrite -eventsId 18
         [int]$global:waitCheckProcess += 1
 
 if ($waitCheckProcess -eq 5) {
-        logsWrite -programName $ProgrammName -eventsId 22
+        logsWrite -eventsId 22
 }
 }
 }

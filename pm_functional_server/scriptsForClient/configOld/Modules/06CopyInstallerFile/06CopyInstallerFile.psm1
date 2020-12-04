@@ -7,7 +7,7 @@ function startInstallZIP {
 
 # начало копирования и распаковки
 
-        logsWrite -programName $ProgrammName -eventsId 24
+        logsWrite -eventsId 24
 
 # Запускаем закачку асинхронно
 
@@ -15,11 +15,11 @@ function startInstallZIP {
     
         if (Test-Path -Path "\\$ipaddressHost\C$\Setup\$archive") {
 
-                logsWrite -programName $ProgrammName -eventsId 11
+                logsWrite -eventsId 11
                 
         } else {
 
-                logsWrite -programName $ProgrammName -eventsId 12
+                logsWrite -eventsId 12
                 exit
                 
         }
@@ -29,7 +29,7 @@ function CopyExeFile {
 
 # Установка софта с установщика без архива
 
-        logsWrite -programName $ProgrammName -eventsId 24
+        logsWrite -eventsId 24
 
 # Копируем дистрибутивы не в архиве zip
 
@@ -41,11 +41,11 @@ function CopyExeFile {
 
 if (Test-Path -Path "\\$ipaddressHost\C$\Setup\$ProgrammFile") {
 
-        logsWrite -programName $ProgrammName -eventsId 4
+        logsWrite -eventsId 4
  
 } else {
 
-        logsWrite -programName $ProgrammName -eventsId 15
+        logsWrite -eventsId 15
         exit
         
 }

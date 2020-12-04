@@ -1,22 +1,26 @@
 ﻿
-Import-Module .\rest_api\config\Modules\14logsWrite
+Import-Module .\config\Modules\14logsWrite
 
 $pathToPowershell = "c:\windows\system32\windowspowershell\v1.0\powershell.exe"
 $pathToWorkingscriptCli = "c:\setup\workingscript.cli"
 $pathToWorkingscriptPs1 = "C:\Setup\workingscript.ps1"
 
 function checkingProcessTask {
+    Param (
+        $fileMakedScript,
+        $scriptname
+        )
 
     # Усзнаем PID процесса. Сам скрипт (значение переменной fileMakedScript) находится в разных файлах (смотря где вызываются)
     $fileMakedScript | Out-File -Encoding UTF8 C:\Setup\$scriptname
     
     if ((Test-Path "C:\Setup\$scriptname") -eq 1) {
 
-        start-process -filepath $pathToPowershell -argumentlist "-executionpolicy bypass -file c:\setup\$scriptname -windowstyle hidden"
-
+        Start-Process -filepath $pathToPowershell -argumentlist "-executionpolicy bypass -file c:\setup\$scriptname -windowstyle hidden"
+    
     } else {
 
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 15
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 15
 
     }
 
@@ -27,13 +31,13 @@ function checkingProcessTask {
     
     if ($wait -eq 1) {
 
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 41
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 41
     }
 
     if ($wait -eq 12) {
         
         [int]$wait = 1
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 42
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 42
         # После поддтверждения запуск скрипта будет повторный и проверка работает скрипт или нет
         exit
       
@@ -58,12 +62,12 @@ function checkingProcessTask {
         Wait-Event -Timeout 4
 
     if ($wait -eq 1) {    
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 41
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 41
     }
 
     if ($wait -eq 12) {
         [int]$wait = 1
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "12," -eventsId 42
+        logsWrite -fieldsinmainLog "script_id," -fields "12," -eventsId 42
         # После 10 проверки будет перезапуск процесса который создает файл workingscript.cli
         exit
     }
@@ -85,12 +89,12 @@ function checkingProcessTask {
             Wait-Event -Timeout 4
                 
     if ($wait -eq 1) {    
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 43
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 43
     }
 
     if ($wait -eq 12) {
         [int]$wait = 1
-        logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "11," -eventsId 44
+        logsWrite -fieldsinmainLog "script_id," -fields "11," -eventsId 44
         # После 10 проверки будет перезапуск процесса который создает файл workingscript.cli
         exit
     }
@@ -107,8 +111,8 @@ function checkingProcessTask {
 
 # удаляем скрипты "проверки запуска процесса"
 Remove-Item  $pathToWorkingscriptPs1 -Force
-logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "13," -eventsId 45
+logsWrite -fieldsinmainLog "script_id," -fields "13," -eventsId 45
 
 Remove-Item "c:\setup\$scriptname" -Force
-logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "14," -eventsId 45
+logsWrite -fieldsinmainLog "script_id," -fields "14," -eventsId 45
 }

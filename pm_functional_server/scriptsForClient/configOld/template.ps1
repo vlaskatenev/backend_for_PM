@@ -8,28 +8,27 @@ Import-Module .\config\Modules\check_installer_file_and_install_soft
 Import-Module .\config\Modules\09removeNoPowerShell
 
 # запись события о старте установки приложения в SQL
-logsWrite -programName $ProgrammName -eventsId 38
+logsWrite -eventsId 38
 
 checkinstallsoft
 
-logsWrite -programName $ProgrammName -fieldsinmainLog "script_id," -fields "1," -eventsId 37
+logsWrite -fieldsinmainLog "script_id," -fields "1," -eventsId 37
 
 # Проверка установлен ли софт. Конец
 #####################################################################
 
 if ($SoftHave -eq 0) {
 
-        logsWrite -programName $ProgrammName -eventsId 7
+        logsWrite -eventsId 7
 
-}
-else {
+} else {
 
         # копируем дистрибутив или архив zip 
-        copyinstallerNEW 
+        copyinstallerNEW
         # Следующая функция отвечает за проверку загруженных файлов по хешу MD5
         # checkhashinstallerfile
         # Если был загружен архив с программой - об будет разархивирован этой функцией
-        extractarchive
+        # extractarchive
         # Проверка загруженного (или разархивированного архива) дистрибутива на целостность по вычисленю хешей всех файлов (если дистрибути из нескольких и больше файлов)
         # и сравнение их с приоритетным - указанным в переменной. 
         checkinstallerfileandinstallsoft
@@ -48,7 +47,7 @@ else {
         while ($folder2 -eq $null) {
 
                 $folder2 = Get-ChildItem "C:\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -File "*$programmShortcuts*"
-                logsWrite -programName $ProgrammName -eventsId 3
+                logsWrite -eventsId 3
                 startCheckProcess
                 Wait-Event -Timeout 10
 
@@ -56,7 +55,7 @@ else {
 
         if ($folder2 -ne $null) {
 
-                logsWrite -programName $ProgrammName -eventsId 10
+                logsWrite -eventsId 10
             
         }
 
@@ -71,7 +70,7 @@ else {
 }
 
  # Запись в БД события об успешном завершении процесса установки
-        logsWrite -programName $ProgrammName -eventsId 52
+        logsWrite -eventsId 52
 
 
 

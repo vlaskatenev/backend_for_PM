@@ -8,10 +8,7 @@
 #     procDescription="Browser2"
 # })
 
-
-function allProgramm {
-
-    return (@{
+$allProgramm = (@{
         procName="chrome"
         ProgrammName="Google Chrome"
         procDescription="Browser"
@@ -21,4 +18,4 @@ function allProgramm {
         procDescription="Browser2"
     })
 
-}
+Export-ModuleMember -Variable allProgramm

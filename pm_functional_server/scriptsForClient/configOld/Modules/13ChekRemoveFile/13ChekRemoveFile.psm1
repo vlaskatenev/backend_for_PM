@@ -1,4 +1,4 @@
-﻿Import-Module .\rest_api\config\Modules\14logsWrite
+﻿Import-Module .\config\Modules\14logsWrite
 
 function ChekRemoveFile {
 Param (
