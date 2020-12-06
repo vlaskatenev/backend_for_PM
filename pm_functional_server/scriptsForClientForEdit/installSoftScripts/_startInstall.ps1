@@ -1,6 +1,6 @@
 ﻿Import-Module .\simpleFunctions
 
-. .\programmVariables.ps1
+. C:\Setup\installSoftScripts\programmVariables.ps1
 
 For (   [int]$i = 0;
         $i -LT $programms.Length;

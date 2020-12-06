@@ -29,4 +29,3 @@ if (findDisplayNameInReg -softDisplayName $softDisplayName) {
 
  # Запись в БД события об успешном завершении процесса установки
 logsWrite -eventsId 52 -softDisplayName $softDisplayName
-
