@@ -1,4 +1,4 @@
-Import-Module .\installSoftScripts\simpleFunctions
+﻿Import-Module .\simpleFunctions
 
 # функция проверет установлен ли софт
 # и если не установлен то проверяет по $processId запущен ли процесс на компьютере
@@ -8,7 +8,6 @@ function checkInstallingSoft {
         [String]$softDisplayName,
         $processId
         )
-
     if (findDisplayNameInReg -softDisplayName $softDisplayName) {
         # софт уже установлен
         logsWrite -logString "$softDisplayName soft have on client"
@@ -36,7 +35,7 @@ function findDisplayNameInReg {
     $WantedApp = $InstalledApps | Where { $_.DisplayName -like $softDisplayName }
     
     if ($WantedApp) { 
-        logsWrite -logString "$softDisplayName finded on client, $WantedApp"
+        logsWrite -logString "$softDisplayName finded on client"
         return $true 
     } else { 
         logsWrite -logString "$softDisplayName NOT finded on client"

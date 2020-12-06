@@ -1,43 +1,29 @@
-﻿Import-Module .\config\Modules\14logsWrite
-Import-Module .\config\Modules\15programmVariables
+﻿Import-Module .\simpleFunctions
 
+. .\programmVariables.ps1
 
 For (   [int]$i = 0;
-        $i -LT $allProgramm.Length;
+        $i -LT $programms.Length;
         $i += 1 ) {
 
         #####################################################################
         # Назначение переменных для софта. Начало 
-
-        $procName = $programms[$i].procName
-
-        #####################################################################
-
-        $programmName = $programms[$i].ProgrammName
+        # Имя программы, которое будет искаться в реестре        
+        $softDisplayName = $programms[$i].softDisplayName
 
         #####################################################################
-
-        $procDescription = $programms[$i].procDescription
-
-        #####################################################################
-
+        # короткое имя программы. Необходимо для создания скриптов        
         $shortProgrammName = $programms[$i].ShortProgrammName
 
         #####################################################################
-
+        # файл программы установщика
         $programmFile = $programms[$i].ProgrammFile
 
         #####################################################################
-
+        # ключ для тихой установки
         $key = $programms[$i].key
 
         #####################################################################
-
-        $distributeName = $programms[$i].DistributeName
-
-        #####################################################################
-
-        $programmShortcuts = $programms[$i].programmShortcuts
 
         $urlToProgrammFile = $programms[$i].urlToProgrammFile
 

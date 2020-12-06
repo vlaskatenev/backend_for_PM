@@ -1,15 +1,15 @@
-# функция запускает установщик софта - просто загруженый 
+﻿# функция запускает установщик софта - просто загруженый 
 function installExe { 
         # installExe -installExe $installExe -key $key
         Param (
-            $installExe,
+            $installer,
             $key
         )
         Wait-Event -Timeout 15
 
         logsWrite -eventsId 25
 
-        $processId = (Start-Process -FilePath "c:\Setup\$ProgrammFile" -ArgumentList $key -WindowStyle hidden).Id
+        $processId = (Start-Process -FilePath "c:\Setup\$installer" -ArgumentList $key -WindowStyle hidden -passthru).Id
 
         return $processId
 }
@@ -21,13 +21,14 @@ function logsWrite {
     [string]$fieldsinmainLog,
     [string]$fields,
     $logString=$False,
-    [int]$eventsId
+    [int]$eventsId,
+    $softDisplayName="none"
     )
     $curDate = Get-Date
     if ($logString) {
-            Write-Output "$curDate, $logString" >> proc.txt
+            Write-Output "$curDate, $logString" >> C:\Setup\logInstall.txt
     } else {
-            Write-Output "$curDate, programName $Global:ProgrammName, $fieldsinmainLog $fields events_id $eventsId" >> proc.txt
+            Write-Output "$curDate, programName $softDisplayName, $fieldsinmainLog $fields events_id $eventsId" >> C:\Setup\logInstall.txt
     }
 }
 
@@ -64,7 +65,8 @@ function removeFile {
 function newScheduledTaskTrigger {
         # newScheduledTaskTrigger -shortProgrammName $shortProgrammName
         Param (
-                $shortProgrammName
+                $shortProgrammName,
+                $programmFile
                 )
         $pathToPowershell = "c:\windows\system32\windowspowershell\v1.0\powershell.exe"
         $pathToWorkingscriptPs1 = "C:\Setup\workingscript.ps1"
@@ -82,14 +84,12 @@ function newScheduledTaskTrigger {
         
         # Делаем скрипт который будет выполняться планировщиком заданий после перезагрузки ПК
         
-        $MakeStartupScript = "  Remove-Item C:\Setup\$DistributeName -Recurse -Force
+        $MakeStartupScript = "  Remove-Item C:\Setup\$programmFile
                                 Unregister-ScheduledTask -TaskName StartupScript$ShortProgrammName -Confirm:$false
                                 Remove-Item C:\Setup\StartupScript$ShortProgrammName.ps1 -Force
                                 Remove-Item $pathToWorkingscriptPs1 -Force"
 
         $MakeStartupScript | Out-File -Encoding UTF8 C:\Setup\StartupScript$ShortProgrammName.ps1
-        
-        #####################################################################
 }
 
         
