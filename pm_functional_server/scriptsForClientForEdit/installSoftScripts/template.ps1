@@ -16,7 +16,7 @@ if (findDisplayNameInReg -softDisplayName $softDisplayName) {
         logsWrite -eventsId 7 -softDisplayName $softDisplayName
 } else {
         # копируем дистрибутив
-        copyFile -url $urlToProgrammFile
+        copyFile -url $urlToProgrammFile -file $programmFile
         
         $processId = installExe -installer $programmFile -key $key
         while ((checkInstallingSoft -softDisplayName $softDisplayName -processId $processId) -eq $processId) {

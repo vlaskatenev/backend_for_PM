@@ -36,14 +36,16 @@ function logsWrite {
 function copyFile {
         # copyFile -url "http://dl.remouse.com/ReMouseMicro-Setup.exe"
         Param (
-            $url
+            $url,
+            $file
         )
         $pathToDownload = "C:\Setup"
         if (-Not (Test-Path $pathToDownload)) { 
                 New-Item  $pathToDownload
                 logsWrite -logString "$pathToDownload maked"
          }
-        Start-BitsTransfer –source  $url -destination $pathToDownload -Priority low
+        Invoke-WebRequest -URI $url -outfile "$pathToDownload\$file"
+        # Start-BitsTransfer –source  $url -destination $pathToDownload -Priority low
         logsWrite -logString "$url downloaded to $pathToDownload"
         return $true
 }
