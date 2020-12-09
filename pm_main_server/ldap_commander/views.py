@@ -5,7 +5,8 @@ from celery.result import AsyncResult
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from services_main_server.ldap import connect_to_ldap_server, add_computer_in_ad
+from services_main_server.ldap import connect_to_ldap_server, add_computer_in_ad, to_dicts_programms
+from services_main_server.pure_functions import create_object_for_powershell, create_file_ps1
 
 
 # {
@@ -51,12 +52,28 @@ class FindComputerInAD(APIView):
         return conn
 
 
+# {
+#     "DistinguishedName": ["CN=COMP3,OU=comps,DC=npr,DC=nornick,DC=ru"],
+#     "programmId": [1],
+#     "computerName": ["COMP3"]
+# }
 class AddComputerInADGroup(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        from data_construction.models import Soft
         conn = connect_to_ldap_server()
         if conn:
-            return add_computer_in_ad(conn, request.data['DistinguishedName'])
+            # создаем словари внутри списка с параметрами софта для установки
+            programm_list = [json.loads(
+                json.dumps(dict(data=list(Soft.objects.filter(pk=i).values())))
+                ) for i in request.data['programmId']]
+
+            obj_powershell = create_object_for_powershell(programm_list[0]['data'])
+            # создаем скрипты PS1 для каждого компьютера
+            for computer_name in request.data['computerName']:
+                create_file_ps1(obj_powershell, computer_name)
+            # return add_computer_in_ad(conn, request.data['DistinguishedName'])
+            return JsonResponse({"data": add_computer_in_ad(conn, request.data['DistinguishedName'])}, status=412)
         return JsonResponse({"data": "You are have problem this viwed parametr DistinguishedName"}, status=412)
 

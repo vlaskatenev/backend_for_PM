@@ -33,32 +33,19 @@ class LogsInstallationSoft(models.Model):
 class Soft(models.Model):
     """
     Модель с параметрами софта необходимыми для установки программы.\n
-    Soft.objects.create(proc_name='ChromeStandaloneSetup', \n
-    short_program_name='GoogleChrome', \n
-    proc_description='Google Update Setup', \n
-    program_name='Google Chrome', \n
-    program_file='ChromeStandaloneSetup.exe', \n
-    key_string='', \n
-    zip=False, \n
-    archive='', \n
-    distribute_name='ChromeStandaloneSetup.exe', \n
-    program_shortcut='Google Chrome.lnk', \n
-    drive_letter='C', \n
-    path_to_setup='Setup')
+    Soft.objects.create(short_program_name='notepad', \n
+    soft_display_name='Notepad++ (64-bit x64)', \n
+    program_file='npp.7.9.1.Installer.x64.exe', \n
+    key_string='/S', \n
+    url_to_programm_file='http://192.168.10.1:8081/scripts/npp.7.9.1.Installer.x64.exe')
     """
-    
-    proc_name = models.CharField(verbose_name='proc_name', max_length=128)
-    short_program_name = models.CharField(verbose_name='short_program_name', max_length=128)
-    proc_description = models.CharField(verbose_name='proc_description', max_length=128)
-    program_name = models.CharField(verbose_name='program_name', max_length=128)
-    program_file = models.CharField(verbose_name='program_file', max_length=128)
-    key_string = models.CharField(verbose_name='key_string', max_length=128)
-    zip = models.BooleanField(verbose_name='zip')
-    archive = models.CharField(verbose_name='archive', max_length=128)
-    distribute_name = models.CharField(verbose_name='distribute_name', max_length=128)
-    program_shortcut = models.CharField(verbose_name='program_shortcut', max_length=128)
-    drive_letter = models.CharField(verbose_name='drive_letter', max_length=128)
-    path_to_setup = models.CharField(verbose_name='path_to_setup', max_length=128)
+
+    short_program_name = models.CharField(verbose_name='short_program_name', default='none', max_length=128)
+    soft_display_name = models.CharField(verbose_name='soft_display_name', default='none', max_length=128)
+    program_file = models.CharField(verbose_name='program_file', default='none', max_length=128)
+    key_string = models.CharField(verbose_name='key_string', default='none', max_length=128)
+    url_to_programm_file = models.CharField(verbose_name='url_to_programm_file', default='none', max_length=128)
+
 
 
 

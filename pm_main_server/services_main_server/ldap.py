@@ -12,17 +12,21 @@ def connect_to_ldap_server():
         return conn 
     return False
 
-
+# [CN=COMP3,OU=comps,DC=npr,DC=nornick,DC=ru]
 def add_computer_in_ad(conn, array_distinguished_name):
     """Добавляем компьютер в группу AD"""
     result = conn.modify(
                 'CN=forpm,OU=allgroup,DC=npr,DC=nornick,DC=ru',
                 {
                     'member': [(
-                        MODIFY_ADD, 
+                        MODIFY_ADD,
                         array_distinguished_name)
                             ]})
     return result
+
+
+def to_dicts_programms(id_list):
+    pass
 
 
 def find_computer_in_ad(computer_name: str) -> bool:

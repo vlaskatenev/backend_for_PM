@@ -52,19 +52,39 @@ class InsertWorkDataFromClient(generics.CreateAPIView):
         return JsonResponse({"task": request.data, "observers": settings.OBSERVER._observers}, status=200)
 
 
-
-
-
-
-
-# method ONLY web main server
+# method ONLY web main_server
 # get request for all data
-class SelectWorkData(generics.ListCreateAPIView):
+class SelectWorkedData(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkForTaskManagerDetailSerializer
+    def get(self, request):
+        all_worked_data = ResultWork.objects.filter(result_work=True)
+        for model in all_worked_data:
+            model.status_code=True
+            model.save()
+        return JsonResponse({"allWorkedData": all_worked_data}, status=200)
 
-    queryset = ResultWork.objects.filter(id_install=255777)
+    
+# method ONLY clients PC
+# post request for change data 
+# {
+#     "id_install": 255777,
+#     "result_work": True
+# }
+class InsertWorkedData(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        worked_data = ResultWork.objects.filter(id_install=request.data["id_install"])
+        for model in worked_data:
+            model.result_work=True
+            model.save()
+        if request.data["result_work"]:
+            settings.OBSERVER.notify(request.data)
+            settings.OBSERVER.detach(request.data)
+        return JsonResponse({"workedData": worked_data}, status=200)
+
+    
 
 
 
@@ -104,24 +124,5 @@ class StartExportInformationProcess(APIView):
     def get(self, request):
         task = export_information_process.delay()
         return JsonResponse({"task_id": task.id}, status=202)
-
-
-# {
-#    "data": [['Chrome', 'Notepad'], [1, 2], ['comp1']]
-# }
-class CreateScriptsForClient(APIView):
-    """
-    создаем скрипты для клиента
-    example request: 
-    {
-    "data": [['Chrome', 'Notepad'], [1, 2], ['comp1']]
-    }
-    """
-
-    permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
-        return Response(dict(requestFromServer=request.data['data'], statusOk="OK"))
-
 
 

@@ -7,6 +7,7 @@ class ResultWork(models.Model):
     computer_name = models.CharField(verbose_name='computer_name', default='none_name', max_length=32)
     program_name = models.CharField(verbose_name='program_name', default='none_name', max_length=32)
     events_id=models.IntegerField(verbose_name='events_id', default=10)
+    status_code=models.BooleanField(verbose_name='status_code', default=False)
 
 
 class ResultWorkForTaskManager(models.Model):
