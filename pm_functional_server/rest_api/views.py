@@ -9,41 +9,54 @@ from .models import ResultWorkForTaskManager
 from .tasks import get_data_for_task_manager, export_information_process
 from celery.result import AsyncResult
 from django.conf import settings
+from django.db.models import Q
 
 
-# method for client PC and WEB main server
-# example json for post method
-# {
+# запись данных в БД об старте установки и добавление слушателя в массив
+# {"data": [{
+#     "program_name": "Google Chrome",
+#     "events_id": "50"
+#   }],
 #     "id_install": 255777,
-#     "result_work": false
+#     "result_work": False,
+#     "computer_name": "COMP3"
 # }
 class InsertWorkData(generics.CreateAPIView):
     """Добавляем задание в слушателя и записываем его в БД"""
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkForTaskManagerDetailSerializer
-
     def post(self, request):
-        task = get_data_for_task_manager.delay(request.data)
-        ResultWorkForTaskManager.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
+        for obj in request.data["data"]:
+            ResultWork.objects.create(id_install=request.data["id_install"],
+                result_work=request.data["result_work"],
+                computer_name=request.data["computer_name"],
+                program_name=obj["program_name"],
+                events_id=obj["events_id"]
+                )
 
         settings.OBSERVER.attach(request.data)
 
-        return JsonResponse({"task_id": task.id, "observers": settings.OBSERVER._observers}, status=202)
+        return JsonResponse({"observers": settings.OBSERVER._observers}, status=200)
 
 
-# {
+# лог по одной установке, каждый объект в массиве  - информация по каждой программе установленной на клиенте
+# {"data": [{
+#     "program_name": "Google Chrome",
+#     "events_id": "50"
+#   }],
 #     "id_install": 255777,
-#     "result_work": True
+#     "result_work": True,
+#     "computer_name": "COMP3"
 # }
 class InsertWorkDataFromClient(generics.CreateAPIView):
     """Клиент уведомляет слушателя, вносим запись в БД, изменяем состояние слушателя и удаляем объект клиента из массива слушателя при занчении resultWork = True"""
     permission_classes = (IsAuthenticated,)
 
-    serializer_class = ResultWorkForTaskManagerDetailSerializer
-
     def post(self, request):
-        ResultWorkForTaskManager.objects.create(id_install=request.data["id_install"], result_work=request.data["result_work"])
+        worked_data = ResultWork.objects.filter(id_install=request.data["id_install"])
+        for model in worked_data:
+            model.result_work=request.data["result_work"]
+            model.save()
         
         if request.data["result_work"]:
             settings.OBSERVER.notify(request.data)
@@ -58,34 +71,14 @@ class SelectWorkedData(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        all_worked_data = ResultWork.objects.filter(result_work=True)
+        import json
+        all_worked_data = ResultWork.objects.filter(Q(result_work=True) & Q(status_code=False))
+        data_from_db = json.loads(json.dumps(dict(data=list(all_worked_data.values()))))
         for model in all_worked_data:
             model.status_code=True
             model.save()
-        return JsonResponse({"allWorkedData": all_worked_data}, status=200)
 
-    
-# method ONLY clients PC
-# post request for change data 
-# {
-#     "id_install": 255777,
-#     "result_work": True
-# }
-class InsertWorkedData(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
-        worked_data = ResultWork.objects.filter(id_install=request.data["id_install"])
-        for model in worked_data:
-            model.result_work=True
-            model.save()
-        if request.data["result_work"]:
-            settings.OBSERVER.notify(request.data)
-            settings.OBSERVER.detach(request.data)
-        return JsonResponse({"workedData": worked_data}, status=200)
-
-    
-
+        return JsonResponse({"allWorkedData": data_from_db}, status=200)
 
 
 # Example request for StartCommandTaskManager:

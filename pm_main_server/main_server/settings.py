@@ -145,12 +145,8 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Опрашиваем сервер functional-server на наличие данных об завершенных процессах
 TASK_ID_LIST = []
-CELERY_BEAT_SCHEDULE = {
-    'to_id_process': {
-        'task': 'services_main_server.tasks.MyTaskClass',
-        'schedule': timedelta(seconds=600),
-}, 'to_result_process': {
-        'task': 'services_main_server.tasks.MyTaskClass2',
-        'schedule': timedelta(seconds=300),
-}
-}
+
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_BROKER = "redis://redis:6379/0"
+CELERY_BACKEND = "redis://redis:6379/0"
