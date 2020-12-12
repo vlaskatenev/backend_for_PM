@@ -3,17 +3,18 @@ version: '3.7'
 services:
   main-server:
     build: pm_main_server
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: /bin/bash /usr/src/app/run-celery-django.sh
     volumes:
       - ./pm_main_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
     depends_on:
       - db-main
+      - redis
 
 
   functional-server:
     build: pm_functional_server
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: /bin/bash /usr/src/app/run-celery-django.sh
     volumes:
       - ./pm_functional_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
@@ -21,14 +22,14 @@ services:
       - redis
 
 
-  celery:
-    build: pm_functional_server
-    command: celery worker --app=functional-server --loglevel=info --logfile=logs/celery.log
-    volumes:
-      - ./pm_functional_server:/usr/src/app
-    depends_on:
-      - functional-server
-      - redis
+  # celery:
+  #   build: pm_functional_server
+  #   command: celery worker --app=functional-server --loglevel=info  
+  #   volumes:
+  #     - ./pm_functional_server:/usr/src/app
+  #   depends_on:
+  #     - functional-server
+  #     - redis
 
   dashboard-celery:
     build: pm_functional_server
@@ -38,7 +39,6 @@ services:
     depends_on:
       - functional-server
       - redis
-      - celery
 
 
   db-main:

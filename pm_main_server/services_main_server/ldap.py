@@ -39,3 +39,24 @@ def find_computer_in_ad(computer_name: str) -> bool:
             search_scope='SUBTREE',
             attributes = ['member'])
     return False
+
+
+def create_ps1_script_for_client(obj):
+    """Создаем скрипт ps1 для клиента"""
+    from data_construction.models import Soft
+    from services_main_server.pure_functions import create_file_ps1, create_object_for_powershell
+    import json
+
+    conn = connect_to_ldap_server()
+    if conn:
+        # создаем словари внутри списка с параметрами софта для установки
+        programm_list = [json.loads(
+            json.dumps(dict(data=list(Soft.objects.filter(pk=i).values())))
+            ) for i in obj["program_id"]]
+
+        obj_powershell = create_object_for_powershell(programm_list[0]['data'])
+        # создаем скрипты PS1 для каждого компьютера
+        for i in range(len(obj["computer_name"])):
+            create_file_ps1(obj_powershell, obj["computer_name"][i], obj['idInstall'][i])
+        return add_computer_in_ad(conn, obj['DistinguishedName'])
+    return False

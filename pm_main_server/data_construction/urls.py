@@ -7,5 +7,6 @@ urlpatterns = [
     # url(r'^running_process$', views.RunningProcess.as_view()),
     url(r'^show-programm-list$', views.ShowProgrammList.as_view()),
     url(r'^start-install$', views.StartInstall.as_view()),
+    url(r'^start-install-test$', views.StartInstallTest.as_view()),
     url(r'^history-detail$', views.HistoryDetail.as_view()),
 ]

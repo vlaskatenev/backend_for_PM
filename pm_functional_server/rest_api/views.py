@@ -15,10 +15,15 @@ from django.db.models import Q
 # запись данных в БД об старте установки и добавление слушателя в массив
 # {"data": [{
 #     "program_name": "Google Chrome",
-#     "events_id": "50"
+#     "events_id": "50",
+#     "program_id": 1
+#   }, {
+#     "program_name": "Google Chrome2",
+#     "events_id": "50",
+#     "program_id": 1
 #   }],
-#     "id_install": 255777,
-#     "result_work": False,
+#     "id_install": 255789,
+#     "result_work": false,
 #     "computer_name": "COMP3"
 # }
 class InsertWorkData(generics.CreateAPIView):
@@ -27,16 +32,32 @@ class InsertWorkData(generics.CreateAPIView):
 
     def post(self, request):
         for obj in request.data["data"]:
-            ResultWork.objects.create(id_install=request.data["id_install"],
-                result_work=request.data["result_work"],
-                computer_name=request.data["computer_name"],
-                program_name=obj["program_name"],
-                events_id=obj["events_id"]
-                )
+            for programm in obj["data"]:
+                ResultWork.objects.create(id_install=obj["id_install"],
+                    result_work=obj["result_work"],
+                    computer_name=obj["computer_name"],
+                    program_name=programm["program_name"],
+                    program_id=programm["program_id"],
+                    events_id=programm["events_id"]
+                    )
 
-        settings.OBSERVER.attach(request.data)
+            settings.OBSERVER.attach(obj)
 
         return JsonResponse({"observers": settings.OBSERVER._observers}, status=200)
+
+
+# {
+#             "data": [
+#                 {
+#                     "program_name": "notepad",
+#                     "events_id": 1,
+#                     "program_id": 1
+#                 }
+#             ],
+#             "id_install": 255813,
+#             "result_work": false,
+#             "computer_name": "COMP3"
+#         }
 
 
 # лог по одной установке, каждый объект в массиве  - информация по каждой программе установленной на клиенте

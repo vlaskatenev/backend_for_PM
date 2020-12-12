@@ -62,6 +62,7 @@ class AddComputerInADGroup(APIView):
 
     def post(self, request):
         from data_construction.models import Soft
+        from services_main_server.ldap import connect_to_ldap_server
         conn = connect_to_ldap_server()
         if conn:
             # создаем словари внутри списка с параметрами софта для установки
@@ -72,7 +73,7 @@ class AddComputerInADGroup(APIView):
             obj_powershell = create_object_for_powershell(programm_list[0]['data'])
             # создаем скрипты PS1 для каждого компьютера
             for computer_name in request.data['computerName']:
-                create_file_ps1(obj_powershell, computer_name)
+                create_file_ps1(obj_powershell, computer_name, id_install)
             # return add_computer_in_ad(conn, request.data['DistinguishedName'])
             return JsonResponse({"data": add_computer_in_ad(conn, request.data['DistinguishedName'])}, status=412)
         return JsonResponse({"data": "You are have problem this viwed parametr DistinguishedName"}, status=412)

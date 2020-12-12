@@ -94,4 +94,25 @@ function newScheduledTaskTrigger {
         $MakeStartupScript | Out-File -Encoding UTF8 C:\Setup\StartupScript$ShortProgrammName.ps1
 }
 
+
+function requestToFunctionalServer {
+        Param (
+                $postParams
+                )
+              
+        $postObject = @{
+        id_install=$postParams
+        result_work=$true
+        } | ConvertTo-Json
+    
+        $header = @{
+        "Authorization"="Token 6845ceea30ebdfd038a0e45324c90d4003803ea8"
+        "Content-Type"="application/json"
+        } 
         
+        $url = "http://192.168.10.1:8081/functional/insert-work-data-from-client"
+
+        Invoke-RestMethod -Uri $url -Method POST -Headers $header -Body $postObject
+
+        logsWrite -logString "$postObject object send to  $url"
+}

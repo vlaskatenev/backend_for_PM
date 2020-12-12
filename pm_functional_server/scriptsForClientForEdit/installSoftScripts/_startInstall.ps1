@@ -34,6 +34,8 @@ For (   [int]$i = 0;
 
 }
 
+requestToFunctionalServer -postParams $idInstall
+
 logsWrite -eventsId 50
 Stop-Process -ID $PID -Force
 

@@ -15,3 +15,7 @@ pm_main_server/services_main_server/Access/access_data.py
 scriptsForClient
 softDistributes
 
+pm_main_server/celerybeat-schedule.bak
+pm_main_server/celerybeat-schedule.dat
+pm_main_server/celerybeat-schedule.dir
+pm_main_server/celerybeat.pid
