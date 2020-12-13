@@ -24,3 +24,5 @@ Import dump sql to MySQL in Docker container:
 ```sh
 $ docker exec -i <id container> mysql -uroot -p1234 db_logs12 < mysql/dump_db_logs12.sql
 ```
+
+Create archive with folder "installSoftScripts" to folder "scriptsForClient"
