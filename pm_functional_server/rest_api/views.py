@@ -4,16 +4,14 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from .models import ResultWork
 from rest_framework import generics
-from .serializers import ResultWorkForTaskManagerDetailSerializer
-from .models import ResultWorkForTaskManager
 from .tasks import get_data_for_task_manager, export_information_process
 from celery.result import AsyncResult
 from django.conf import settings
 from django.db.models import Q
 
 
-# запись данных в БД об старте установки и добавление слушателя в массив
-# {"data": [{
+# Example request for InsertWorkData
+# {"data": [{"data": [{
 #     "program_name": "Google Chrome",
 #     "events_id": "50",
 #     "program_id": 1
@@ -25,7 +23,7 @@ from django.db.models import Q
 #     "id_install": 255789,
 #     "result_work": false,
 #     "computer_name": "COMP3"
-# }
+# }]}
 class InsertWorkData(generics.CreateAPIView):
     """Добавляем задание в слушателя и записываем его в БД"""
     permission_classes = (IsAuthenticated,)
@@ -36,6 +34,7 @@ class InsertWorkData(generics.CreateAPIView):
                 ResultWork.objects.create(id_install=obj["id_install"],
                     result_work=obj["result_work"],
                     computer_name=obj["computer_name"],
+                    distinguished_name=obj["DistinguishedName"],
                     program_name=programm["program_name"],
                     program_id=programm["program_id"],
                     events_id=programm["events_id"]
@@ -46,28 +45,10 @@ class InsertWorkData(generics.CreateAPIView):
         return JsonResponse({"observers": settings.OBSERVER._observers}, status=200)
 
 
+# Example request for InsertWorkDataFromClient
 # {
-#             "data": [
-#                 {
-#                     "program_name": "notepad",
-#                     "events_id": 1,
-#                     "program_id": 1
-#                 }
-#             ],
-#             "id_install": 255813,
-#             "result_work": false,
-#             "computer_name": "COMP3"
-#         }
-
-
-# лог по одной установке, каждый объект в массиве  - информация по каждой программе установленной на клиенте
-# {"data": [{
-#     "program_name": "Google Chrome",
-#     "events_id": "50"
-#   }],
-#     "id_install": 255777,
-#     "result_work": True,
-#     "computer_name": "COMP3"
+#     "id_install": 255822,
+#     "result_work": true
 # }
 class InsertWorkDataFromClient(generics.CreateAPIView):
     """Клиент уведомляет слушателя, вносим запись в БД, изменяем состояние слушателя и удаляем объект клиента из массива слушателя при занчении resultWork = True"""
@@ -99,7 +80,7 @@ class SelectWorkedData(generics.ListCreateAPIView):
             model.status_code=True
             model.save()
 
-        return JsonResponse({"allWorkedData": data_from_db}, status=200)
+        return Response(data_from_db)
 
 
 # Example request for StartCommandTaskManager:

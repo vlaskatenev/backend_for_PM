@@ -1,14 +1,14 @@
 import json
 import requests
 from django.http import JsonResponse
-from celery.result import AsyncResult
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from services_main_server.ldap import connect_to_ldap_server, add_computer_in_ad, to_dicts_programms
-from services_main_server.pure_functions import create_object_for_powershell, create_file_ps1
+from services_main_server.ldap import connect_to_ldap_server
+from services_main_server.variables import ou_in_ad_with_computers
 
 
+# Example request for AllComputersFromAD
 # {
 #     "ad_tree": "OU=comps,DC=pre,DC=contoso,DC=com"
 # }
@@ -35,6 +35,7 @@ class AllComputersFromAD(APIView):
         return JsonResponse({"data": "Refused connection to AD", "workStatusWithAD": bool(conn)}, status=412)
 
 
+# Example request for FindComputerInAD
 # {
 #     "computerName": "comp2"
 # }
@@ -45,36 +46,8 @@ class FindComputerInAD(APIView):
         conn = connect_to_ldap_server()
         if conn:
             return conn.search(
-                search_base='OU=comps,DC=pre,DC=contoso,DC=com',
+                search_base=ou_in_ad_with_computers,
                 search_filter=f'(Name={request.data["computerName"]})', 
                 search_scope='SUBTREE', 
                 attributes = ['member'])
         return conn
-
-
-# {
-#     "DistinguishedName": ["CN=COMP3,OU=comps,DC=npr,DC=nornick,DC=ru"],
-#     "programmId": [1],
-#     "computerName": ["COMP3"]
-# }
-class AddComputerInADGroup(APIView):
-    permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
-        from data_construction.models import Soft
-        from services_main_server.ldap import connect_to_ldap_server
-        conn = connect_to_ldap_server()
-        if conn:
-            # создаем словари внутри списка с параметрами софта для установки
-            programm_list = [json.loads(
-                json.dumps(dict(data=list(Soft.objects.filter(pk=i).values())))
-                ) for i in request.data['programmId']]
-
-            obj_powershell = create_object_for_powershell(programm_list[0]['data'])
-            # создаем скрипты PS1 для каждого компьютера
-            for computer_name in request.data['computerName']:
-                create_file_ps1(obj_powershell, computer_name, id_install)
-            # return add_computer_in_ad(conn, request.data['DistinguishedName'])
-            return JsonResponse({"data": add_computer_in_ad(conn, request.data['DistinguishedName'])}, status=412)
-        return JsonResponse({"data": "You are have problem this viwed parametr DistinguishedName"}, status=412)
-

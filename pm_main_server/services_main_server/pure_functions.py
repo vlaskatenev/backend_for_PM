@@ -22,7 +22,3 @@ def create_file_ps1(obj_powershell, computer_name, id_install):
     script_file = open(path, 'tw', encoding='utf-8-sig')
     script_file.write(object_for_computer)
     script_file.close()
-
-
-def to_id_install_from_db():
-    pass

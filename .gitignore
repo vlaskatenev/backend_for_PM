@@ -10,9 +10,10 @@ my-db
 pm_main_server/core/Access/access.xml
 
 pm_main_server/logs
-pm_functional_server/db.sqlite3
 pm_main_server/services_main_server/Access/access_data.py
-scriptsForClient
+scriptsForClient/forClients
+scriptsForClient/*.zip
+scriptsForClient/*.exe
 softDistributes
 
 pm_main_server/celerybeat-schedule.bak

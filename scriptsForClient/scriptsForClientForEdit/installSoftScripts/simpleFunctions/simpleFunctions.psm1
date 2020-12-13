@@ -87,9 +87,10 @@ function newScheduledTaskTrigger {
         # Делаем скрипт который будет выполняться планировщиком заданий после перезагрузки ПК
         
         $MakeStartupScript = "  Remove-Item C:\Setup\$programmFile
-                                Unregister-ScheduledTask -TaskName StartupScript$ShortProgrammName -Confirm:$false
+                                Unregister-ScheduledTask -TaskName StartupScript$ShortProgrammName -Confirm:`$false
                                 Remove-Item C:\Setup\StartupScript$ShortProgrammName.ps1 -Force
-                                Remove-Item $pathToWorkingscriptPs1 -Force"
+                                Remove-Item $pathToWorkingscriptPs1 -Force
+                                Remove-Item C:\Setup\installSoftScripts -Recurse -Force"
 
         $MakeStartupScript | Out-File -Encoding UTF8 C:\Setup\StartupScript$ShortProgrammName.ps1
 }

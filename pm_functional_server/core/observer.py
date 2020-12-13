@@ -51,7 +51,6 @@ class ConcreteSubject(Subject):
 
     def attach(self, observer) -> None:
         self._observers.append(observer)
-        print("Subject: Attached an observer.", self._observers)
 
     # здесь будет удаление подписки на объект и дальнейшая запись в БД об успешном окончании задания
     def detach(self, response_from_pc) -> None:
@@ -63,8 +62,6 @@ class ConcreteSubject(Subject):
         for obj in temp_array:
             self._observers.remove(obj)
 
-
-        print("Subject: Detached an observer.", self._observers)
     """
     Методы управления подпиской.
     """
@@ -74,7 +71,6 @@ class ConcreteSubject(Subject):
         Запуск обновления в каждом подписчике перед отпиской.
         """
 
-        print("Subject: Notifying observers...")
         for i in range(len(self._observers)):
             if response_from_pc['id_install'] == self._observers[i]['id_install']:
                 self._observers[i]['result_work'] = response_from_pc['result_work']

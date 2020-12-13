@@ -1,11 +1,12 @@
 import requests
+from services_main_server.variables import authorization_token
 
 def request_post(url, obj):
     response = requests.post(url,
                    json={'data': obj},
                    headers={
                    'Content-Type': 'application/json',
-                   'Authorization': 'Token 6845ceea30ebdfd038a0e45324c90d4003803ea8'
+                   'Authorization': authorization_token
                 })
     response_object = response.json()      
     return response_object
@@ -16,7 +17,7 @@ def request_get(url):
     response = requests.get(url,
                    headers={
                    'Content-Type': 'application/json',
-                   'Authorization': 'Token 6845ceea30ebdfd038a0e45324c90d4003803ea8'
+                   'Authorization': authorization_token
                 })
     response_object = response.json()
     return response_object
