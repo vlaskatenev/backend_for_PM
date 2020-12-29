@@ -15,11 +15,11 @@ def choice_program_from_db():
     return prog_id, object_programm_and_id
 
 
-def create_object_to_choose_programm(comp_name: list) -> dict:   
+def create_object_to_choose_programm() -> dict:   
     
     # После выбора ПК из списка или ввода его вручную вызывается эта функция.
     # Формирует список программ - dict_name, номер программы в БД - prog_id и список компьютеров 
     # (в интерфейсе необходим для дальнейшей передачи в виде аргумента для старта установки)
     
     prog_id, dict_name = choice_program_from_db()
-    return dict(data=[dict_name, prog_id, comp_name])
+    return dict(data=[dict_name, prog_id])

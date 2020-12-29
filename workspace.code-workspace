@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\FrontendProject-React"
+		}
+	],
+	"settings": {
+		"autoimport.showNotifications": true,
+		"autoimport.filesToScan": "*.{py,js}"
+	}
+}

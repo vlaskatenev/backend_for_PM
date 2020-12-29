@@ -30,22 +30,11 @@ class HistoryDetail(APIView):
         return Response(create_object_history_detail(request.data['data']))
 
 
-# class RunningProcess(APIView):
-#     permission_classes = (IsAuthenticated,)
-
-#     def post(self, request):
-#         # форматирование даты в нужный формат
-#         id_install = to_install_id_listdir()
-#         return Response(create_context_log(id_install))
-
-# {
-#    "compNameList": ['comp1']
-# }
 class ShowProgrammList(APIView):
     permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
-        return Response(create_object_to_choose_programm(request.data['compNameList']))
+    def get(self, request):
+        return Response(create_object_to_choose_programm())
 
 
 # Example request to StartInstall
