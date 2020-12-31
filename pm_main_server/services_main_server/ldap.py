@@ -66,5 +66,5 @@ def create_ps1_script_for_client(obj):
         # создаем скрипты PS1 для каждого компьютера
         for i in range(len(obj["computer_name"])):
             create_file_ps1(obj_powershell, obj["computer_name"][i], obj['idInstall'][i])
-        return add_computer_in_ad(conn, obj['DistinguishedName'])
+        return add_computer_in_ad(conn, obj['distinguishedName'])
     return False

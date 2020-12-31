@@ -106,10 +106,10 @@ def create_object_to_insert_functional_server(data):
         id_install=data["idInstall"][index],
         result_work=False,
         computer_name=data["computer_name"][index],
-        DistinguishedName=data["DistinguishedName"][index]
+        DistinguishedName=data["distinguishedName"][index]
     ) for index in range(len(data["computer_name"]))]
     return dict(data=data_list,
-        DistinguishedName=data["DistinguishedName"])
+        DistinguishedName=data["distinguishedName"])
   
 
 def check_computer_name_list_in_ad(computr_name_list):
