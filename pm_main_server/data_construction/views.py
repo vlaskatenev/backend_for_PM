@@ -34,7 +34,15 @@ class ShowProgrammList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        return Response(create_object_to_choose_programm())
+        # return Response(create_object_to_choose_programm())
+
+        import json
+        all_worked_data = Soft.objects.all()
+        data_from_db = json.loads(json.dumps(dict(data=list(all_worked_data.values('id', 'short_program_name', 'soft_display_name')))))
+
+        return Response(data_from_db)
+
+
 
 
 # Example request to StartInstall

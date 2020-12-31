@@ -22,4 +22,4 @@ def create_object_to_choose_programm() -> dict:
     # (в интерфейсе необходим для дальнейшей передачи в виде аргумента для старта установки)
     
     prog_id, dict_name = choice_program_from_db()
-    return dict(data=[dict_name, prog_id])
+    return dict(data=[dict_name])
