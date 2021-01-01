@@ -1,5 +1,5 @@
 url_insert_work_data = 'http://functional-server:8000/functional/insert-work-data'
 url_select_worked_data = 'http://functional-server:8000/functional/select-worked-data'
 ou_from_ad_group = 'CN=forpm,OU=allgroup,DC=npr,DC=nornick,DC=ru'
-ou_in_ad_with_computers = 'OU=comps,DC=pre,DC=contoso,DC=com'
+ou_in_ad_with_computers = 'OU=comps,DC=npr,DC=nornick,DC=ru'
 authorization_token = 'Token 6845ceea30ebdfd038a0e45324c90d4003803ea8'

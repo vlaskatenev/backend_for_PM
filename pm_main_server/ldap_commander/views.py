@@ -45,9 +45,18 @@ class FindComputerInAD(APIView):
     def post(self, request):
         conn = connect_to_ldap_server()
         if conn:
-            return conn.search(
+            member_from_ad= conn.search(
                 search_base=ou_in_ad_with_computers,
                 search_filter=f'(Name={request.data["computerName"]})', 
-                search_scope='SUBTREE', 
-                attributes = ['member'])
-        return conn
+                search_scope='SUBTREE',
+                attributes=['member', 'Name', "DistinguishedName"])
+                # создаем список для имен пк, форматируем и добавляем в список
+            array_comp_from_ad = [str(name_pc['Name']).replace("Name: ", "") for name_pc in conn.entries]
+            array_comp_from_ad.reverse()
+            array_distinguished_name = [str(distinguished_name['DistinguishedName']).replace("DistinguishedName: ", "") for distinguished_name in conn.entries]
+            array_distinguished_name.reverse()
+            # member_from_ad = [str(name_pc['member']) for name_pc in conn.entries]
+            # member_from_ad.reverse()
+            # формируем список имен ПК в OU. Конец
+            return JsonResponse({"data": {"adMember": member_from_ad, "computerName": array_comp_from_ad, "DistinguishedName": array_distinguished_name, "workStatusWithAD": bool(conn)}}, status=200)  
+        return JsonResponse({"data": bool(conn)})
