@@ -8,7 +8,6 @@ services:
       - ./pm_main_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
     depends_on:
-      - db-main
       - redis
 
 
@@ -30,17 +29,6 @@ services:
     depends_on:
       - functional-server
       - redis
-
-
-  db-main:
-    image: mysql:latest
-    restart: always
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_DATABASE: db_logs12
-      MYSQL_ROOT_PASSWORD: 1234
-    volumes:
-      - ./my-db:/var/lib/mysql
 
 
   redis:
