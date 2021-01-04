@@ -38,7 +38,15 @@ class HistoryDetail(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        return Response(create_object_history_detail(request.data['data']))
+        # return Response(create_object_history_detail(request.data['data']))
+        all_data = LogsInstallationSoft.objects.filter(startnumber=request.data['data']).values(
+                'date_time',
+                'computer_name', 
+                'program_id_id',
+                'events_id',
+                'result_work'
+            )
+        return Response(dict(data=[updateDict(obj) for obj in all_data]))
 
 
 
