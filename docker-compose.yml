@@ -22,15 +22,6 @@ services:
       - redis
 
 
-  # celery:
-  #   build: pm_functional_server
-  #   command: celery worker --app=functional-server --loglevel=info  
-  #   volumes:
-  #     - ./pm_functional_server:/usr/src/app
-  #   depends_on:
-  #     - functional-server
-  #     - redis
-
   dashboard-celery:
     build: pm_functional_server
     command:  flower -A functional-server --port=5555 --broker=redis://redis:6379/0

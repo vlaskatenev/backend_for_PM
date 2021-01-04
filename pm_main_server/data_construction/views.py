@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from data_construction.for_views.Global.pure_functions_global_api import create_context_log
 from data_construction.for_views.HistoryDetail.pure_functions_historydetail import create_object_history_detail
 from data_construction.for_views.StartInstall.function_start_install import request_to_start_install
-from data_construction.for_views.pure_functions_history import choise_install
+from data_construction.for_views.pure_functions_history import updateDict, to_start_end_day
 from data_construction.for_views.Manually.manually_pure_functions import create_object_to_choose_programm
 from services_main_server.ldap import find_computer_in_ad, create_ps1_script_for_client
 # import data_construction.for_views.pure_functions_runningprocess
@@ -15,14 +15,25 @@ from data_construction.models import LogsInstallationSoft, Soft
 from django.utils import timezone
 
 
+# {data: "2020-04-18"}
+# Выводим список задач запущеных в определенную дату
 class History(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
-        # форматирование даты в нужный формат
-        return Response(create_context_log(choise_install(request.data['data'])))
+        all_data = LogsInstallationSoft.objects.filter(date_time__range=(to_start_end_day(request.data['data'])))
+        list_startnumber = all_data.values('startnumber').distinct()
+
+        list_a = []
+        for num in range(len(list_startnumber)):
+            obj = all_data.filter(startnumber=list_startnumber[num]['startnumber']).values(
+                'startnumber', 'computer_name', 'events_id', 'date_time')
+            list_a.append(obj[0])
+
+        return Response(dict(data=[updateDict(list_a[i]) for i in range(len(list_a))]))
 
 
+# Детальная информация об одной установке
 class HistoryDetail(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -30,11 +41,12 @@ class HistoryDetail(APIView):
         return Response(create_object_history_detail(request.data['data']))
 
 
+
+
 class ShowProgrammList(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        # return Response(create_object_to_choose_programm())
 
         import json
         all_worked_data = Soft.objects.all()
