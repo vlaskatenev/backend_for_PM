@@ -9,7 +9,6 @@ This is backend apps content is:
 - DRF
 - Celery
 - Flower
-- MySQL
 
 Requirements - Docker.
 

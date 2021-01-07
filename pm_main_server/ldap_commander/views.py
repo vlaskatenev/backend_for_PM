@@ -55,5 +55,5 @@ class FindComputerInAD(APIView):
             array_comp_from_ad.reverse()
             array_distinguished_name = [str(distinguished_name['DistinguishedName']).replace("DistinguishedName: ", "") for distinguished_name in conn.entries]
             array_distinguished_name.reverse()
-            return JsonResponse({"data": {"adMember": member_from_ad, "computerName": array_comp_from_ad, "DistinguishedName": array_distinguished_name, "workStatusWithAD": bool(conn)}}, status=200)  
+            return JsonResponse({"data": {"adMember": member_from_ad, "computer_name": array_comp_from_ad, "distinguishedName": array_distinguished_name, "workStatusWithAD": bool(conn)}}, status=200)  
         return JsonResponse({"data": bool(conn)})
