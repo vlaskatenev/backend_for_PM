@@ -7,6 +7,7 @@ services:
     volumes:
       - ./pm_main_server:/usr/src/app
       - ./scriptsForClient:/usr/src/scripts
+      - ../FrontendProject-React/frontend-project-react/build:/usr/src/static
     depends_on:
       - redis
 

@@ -9,6 +9,11 @@ from data_construction.for_views.pure_functions_history import updateDict, to_st
 from services_main_server.ldap import find_computer_in_ad, create_ps1_script_for_client
 from data_construction.models import LogsInstallationSoft, Soft
 from django.utils import timezone
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, 'index.html', {})
 
 
 # {data: "2020-04-18"}
